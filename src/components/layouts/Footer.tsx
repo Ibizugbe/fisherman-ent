@@ -25,16 +25,17 @@ export function Footer() {
             </h3>
 
             {/* Right Form */}
-            <form className="w-full bg-white/30 rounded-md  text-white placeholder-white/60  border-white/20  md:w-auto flex flex-col sm:flex-row gap-4 max-w-lg">
+            <form className="w-full max-w-lg md:w-auto flex flex-row items-center bg-white/30 rounded-md border border-white/20 overflow-hidden">
               <input
                 type="email"
                 placeholder="Your email..."
-                className="flex-1 px-8 py-4 text-lg focus-outline-none bg-transparent border-none"
+                className="flex-1 px-6 sm:px-8 py-4 text-lg bg-transparent text-white placeholder-white/60 border-none outline-none"
               />
+
               <button
                 type="submit"
-                className="px-10 bg-white m-2 text-[#739AD4] font-semibold rounded-md 
-                         hover:bg-gray-100 active:scale-95 transition-all duration-200"
+                className="shrink-0 px-8 sm:px-10 py-4 m-1 rounded-md bg-white text-[#739AD4] font-semibold
+               hover:bg-gray-100 active:scale-95 transition-all duration-200"
               >
                 Subscribe
               </button>

@@ -30,7 +30,7 @@ export default function About() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-gray-50 to-white">
+      <section className="pt-32 pb-20 bg-linear-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -101,7 +101,7 @@ export default function About() {
       </section>
 
       {/* Our Team */}
-      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
+      <section className="py-24 bg-linear-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-start mb-20">
             <h2 className="text-6xl md:text-8xl font-black text-gray-900 leading-none">

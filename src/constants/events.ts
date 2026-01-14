@@ -14,7 +14,7 @@ export const EVENTS: EventItem[] = [
     dateLabel: "TBA",
     venueLabel: "TBA",
     description:
-      "Tradout is a live experience under the brand. Secure your ticket to attend the show..",
+      "Tradout is a live experience under the brand. Secure your ticket to attend the show.",
     // coverImage: "/events/tradout-cover.jpg",
   },
 ];

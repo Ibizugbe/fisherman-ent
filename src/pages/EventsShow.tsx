@@ -40,7 +40,6 @@ export default function EventShow() {
     // Save first (so success page can read it)
     saveTicketOrder(order);
 
-    // Fire-and-forget emails
     (async () => {
       try {
         await sendTicketEmails(order);

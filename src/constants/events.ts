@@ -2,7 +2,7 @@ import type { TicketEvent } from "../types/tickets";
 
 export type EventItem = TicketEvent & {
   description?: string;
-  coverImage?: string; // optional (public path or imported asset)
+  coverImage?: string;
 };
 
 export const EVENTS: EventItem[] = [

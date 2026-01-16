@@ -2,8 +2,10 @@
 import { motion } from "framer-motion";
 import { Button } from "../ui/Button";
 import merch from "../../assets/merch.png";
+import { useNavigate } from "react-router-dom";
 
 export function MerchSection() {
+  const navigate = useNavigate();
   return (
     <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
@@ -23,7 +25,12 @@ export function MerchSection() {
             <br />
             the lifestyle.
           </h2>
-          <Button className="mt-10 bg-[#739AD4] text-white px-8 py-6 text-lg">
+          <Button
+            className="mt-10 bg-[#739AD4] text-white px-8 py-6 text-lg"
+            onClick={() => {
+              navigate("/merch");
+            }}
+          >
             Shop Now
           </Button>
         </motion.div>

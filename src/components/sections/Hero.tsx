@@ -2,12 +2,13 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import heroImage from "../../assets/Hero-section.png";
+import heroImage from "../../assets/hero.jpeg";
+import tradout from "../../assets/tradout/TRADOUT.jpg";
 
 const slides = [
   {
     id: 1,
-    image: heroImage, // put your images in public/hero/1.jpg, 2.jpg, etc.
+    image: tradout, // put your images in public/hero/1.jpg, 2.jpg, etc.
   },
   {
     id: 2,
@@ -18,6 +19,8 @@ const slides = [
 
 export function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const isFirstSlide = currentIndex === 0;
 
   // Auto-play
   useEffect(() => {
@@ -50,7 +53,7 @@ export function Hero() {
           className="absolute inset-0"
           style={{
             backgroundImage: `url('${currentSlide.image}')`,
-            backgroundSize: "cover",
+            backgroundSize: isFirstSlide ? "contain" : "cover",
             backgroundPosition: "center",
           }}
         />

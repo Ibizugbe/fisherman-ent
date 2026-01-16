@@ -20,7 +20,7 @@ function EventCard({ e }: { e: (typeof EVENTS)[number] }) {
             <img
               src={e.coverImage}
               alt={e.name}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              className="h-full w-full object-center transition-transform duration-500 group-hover:scale-[1.03]"
               loading="lazy"
             />
           ) : (

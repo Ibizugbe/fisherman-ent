@@ -1,4 +1,5 @@
 import type { TicketEvent } from "../types/tickets";
+import TradOut from "../assets/tradout/TRADOUT.jpg";
 
 export type EventItem = TicketEvent & {
   description?: string;
@@ -15,7 +16,7 @@ export const EVENTS: EventItem[] = [
     venueLabel: "TBA",
     description:
       "Tradout is a live experience under the brand. Secure your ticket to attend the show.",
-    // coverImage: "/events/tradout-cover.jpg",
+    coverImage: TradOut,
   },
 ];
 

@@ -86,7 +86,7 @@ export default function EventShow() {
                   <img
                     src={event.coverImage}
                     alt={event.name}
-                    className="h-full w-full object-cover object-center"
+                    className="h-full w-full object-center"
                   />
                 ) : (
                   <div className="h-full w-full bg-gradient-to-br from-[#739AD4]/40 via-white/40 to-black/5" />

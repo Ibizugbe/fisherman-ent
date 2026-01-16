@@ -105,12 +105,16 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-start mb-20">
             <h2 className="text-6xl md:text-8xl font-black text-gray-900 leading-none">
-              Our Team
+              Our Partners
             </h2>
             <p className="text-lg text-gray-700 max-w-lg">
-              Fisherman Entertainment is powered by a passionate team of
-              creatives, strategists, and innovators, all united by one goal:
-              making African entertainment global.
+              Fisherman Entertainment is always open to collaborating with
+              likeminded brands that wish to sponsor any of our shows or support
+              the business in any way, shape or form. On our end, we are
+              committed to strategically positioning our sponsors to optimize
+              brand visibility and customer engagement. To sponsor or
+              collaborate with us, shoot us a message on our socials, give us a
+              call or send an email. We are always active.
             </p>
           </div>
 

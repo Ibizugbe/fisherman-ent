@@ -105,7 +105,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-start mb-20">
             <h2 className="text-6xl md:text-8xl font-black text-gray-900 leading-none">
-              Our Partners
+              Brands We have worked with.
             </h2>
             <p className="text-lg text-gray-700 max-w-lg">
               Fisherman Entertainment is always open to collaborating with

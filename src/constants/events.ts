@@ -4,6 +4,7 @@ import TradOut from "../assets/tradout/TRADOUT.jpg";
 export type EventItem = TicketEvent & {
   description?: string;
   coverImage?: string;
+  timeLabel?: string;
 };
 
 export const EVENTS: EventItem[] = [
@@ -12,10 +13,11 @@ export const EVENTS: EventItem[] = [
     name: "Tradout",
     currency: "NGN",
     priceNaira: 15000,
-    dateLabel: "TBA",
-    venueLabel: "TBA",
+    dateLabel: "8th March 2026",
+    timeLabel: "5:00 PM",
+    venueLabel: "Victor Uwaifo Hub, Benin City, Edo State",
     description:
-      "Tradout is a live experience under the brand. Secure your ticket to attend the show.",
+      "Tradout is a live show experience. Get your ticket and be part of the moment.",
     coverImage: TradOut,
   },
 ];

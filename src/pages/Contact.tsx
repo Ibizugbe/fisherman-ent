@@ -95,8 +95,8 @@ export default function Contact() {
               {
                 icon: Phone,
                 title: "Call us today",
-                value: "+234 814692721",
-                href: "tel:+234814692721",
+                value: "+234 8146921721",
+                href: "tel:+2348146921721",
               },
               {
                 icon: Mail,
@@ -107,8 +107,8 @@ export default function Contact() {
               {
                 icon: MessageCircle,
                 title: "WhatsApp",
-                value: "+234 814692721",
-                href: "https://wa.me/234814692721",
+                value: "+234 8146921721",
+                href: "https://wa.me/2348146921721",
                 color: "text-green-600",
               },
             ].map((item, i) => (

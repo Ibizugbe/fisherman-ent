@@ -7,6 +7,7 @@ import BrandsMarqueeSection from "../components/sections/BrandsMarqueeSection";
 import chefG from "../assets/brands/ChefG.png";
 import simplex from "../assets/brands/simplex_exchange.png";
 import bamawo from "../assets/brands/bamawo.jpeg";
+import UpcomingEventsSection from "../components/sections/UpcomingEventsSection";
 
 const brands = [
   { name: "Chef Giwa", logo: chefG },
@@ -21,6 +22,7 @@ export default function Home() {
     <>
       <Navbar />
       <Hero />
+      <UpcomingEventsSection />
       <MerchSection />
       <GallerySection />
       <BrandsMarqueeSection brands={brands} />

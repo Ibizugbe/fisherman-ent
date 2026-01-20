@@ -56,13 +56,13 @@ export default function UpcomingEventsSection() {
                 </div>
               </div>
 
-              <div className="relative flex-1 bg-[#0B1220]">
+              <div className="relative bg-[#0B1220] min-h-[520px] sm:min-h-[620px] lg:min-h-0 lg:flex-1">
                 <div className="absolute inset-0 p-4 sm:p-6">
                   <div className="h-full w-full rounded-2xl bg-black/20 ring-1 ring-white/10 flex items-center justify-center overflow-hidden">
                     <img
                       src={tradout}
                       alt="Tradout event poster"
-                      className="max-h-full max-w-full object-contain"
+                      className="h-full w-full object-contain"
                       loading="lazy"
                     />
                   </div>
@@ -131,7 +131,6 @@ export default function UpcomingEventsSection() {
                 </div>
               </div>
 
-              {/* Bottom (pushes to bottom to match poster card height) */}
               <div className="mt-auto pt-8">
                 <div className="flex flex-col sm:flex-row gap-3">
                   <button

@@ -1,4 +1,3 @@
-// src/components/sections/MerchSection.tsx
 import { motion } from "framer-motion";
 import { Button } from "../ui/Button";
 import merch from "../../assets/merch.png";

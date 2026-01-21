@@ -60,10 +60,10 @@ export default function BrandsMarqueeSection({ brands }: Props) {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto">
           <p className="text-xs sm:text-sm font-semibold tracking-widest text-gray-600 uppercase">
-            Brands we have worked with
+            Brands We Have Worked With
           </p>
           <h2 className="mt-3 text-3xl sm:text-4xl font-black text-gray-900">
-            Trusted by teams and partners
+            Trusted by teams and sponsors
           </h2>
           <p className="mt-3 text-base sm:text-lg text-gray-600">
             A few of the brands and collaborators we’ve supported.

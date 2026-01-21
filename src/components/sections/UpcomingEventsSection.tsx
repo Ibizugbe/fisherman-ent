@@ -21,7 +21,7 @@ export default function UpcomingEventsSection() {
               Upcoming events
             </p>
             <h2 className="mt-3 text-3xl sm:text-4xl font-black text-gray-900">
-              What’s next at Fisherman
+              What’s Next at Fisherman?
             </h2>
             <p className="mt-3 text-base sm:text-lg text-gray-600 leading-relaxed">
               Get tickets early and stay in the loop for new drops, shows, and

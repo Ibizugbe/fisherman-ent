@@ -62,9 +62,6 @@ export default function About() {
             <p className="text-gray-700 leading-relaxed text-base sm:text-[17px]">
               Our mission is to create, produce, and promote world-class
               entertainment that inspires laughter, connection, and creativity.
-              We aim to amplify unique voices, deliver unforgettable stories
-              across film, television, digital media, and live experiences, and
-              provide the tools, talent, and platforms that bring ideas to life.
             </p>
           </motion.div>
 
@@ -86,11 +83,9 @@ export default function About() {
             </div>
 
             <p className="text-gray-700 leading-relaxed text-base sm:text-[17px]">
-              To become a leading force in global entertainment — a home for
-              creativity, excellence, and originality — where comedy and
-              storytelling spark cultural impact, shape the future of
-              entertainment, and bring people together through shared moments of
-              joy and inspiration.
+              To become a leading force in global entertainment, where comedy
+              and storytelling shape the future of entertainment, and bring
+              people together through shared moments of joy and inspiration.
             </p>
           </motion.div>
         </div>

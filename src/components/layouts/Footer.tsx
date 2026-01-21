@@ -64,7 +64,6 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom Section with Logo & Socials */}
       <div className="py-4 text-center">
         <motion.div
           initial={{ opacity: 0 }}
@@ -81,23 +80,26 @@ export function Footer() {
 
         <div className="flex justify-center gap-8 mt-1">
           <a
-            href="#"
+            href="https://www.instagram.com/fishermanent?igsh=NnZjaW82ZjQ1amYw"
             className="text-gray-600 hover:text-gray-900 transition"
             aria-label="Instagram"
+            target="_blank"
           >
             <Instagram size={28} />
           </a>
           <a
-            href="#"
+            href="https://x.com/skinyfisherman?s=21"
             className="text-gray-600 hover:text-gray-900 transition"
             aria-label="Twitter"
+            target="_blank"
           >
             <Twitter size={28} />
           </a>
           <a
-            href="#"
+            href="https://www.youtube.com/@netete_tv"
             className="text-gray-600 hover:text-gray-900 transition"
             aria-label="YouTube"
+            target="_blank"
           >
             <Youtube size={28} />
           </a>

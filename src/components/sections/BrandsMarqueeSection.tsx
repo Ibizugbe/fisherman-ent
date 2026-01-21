@@ -1,6 +1,6 @@
 type Brand = {
   name: string;
-  logo: string; // path to image (imported or public url)
+  logo: string;
 };
 
 type Props = {
@@ -14,7 +14,6 @@ function MarqueeRow({
   brands: Brand[];
   reverse?: boolean;
 }) {
-  // Duplicate list for seamless looping
   const items = [...brands, ...brands];
 
   return (
@@ -41,7 +40,6 @@ function MarqueeRow({
         ))}
       </div>
 
-      {/* soft edge fades */}
       <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-20 bg-gradient-to-r from-[#F4F1EF] to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-20 bg-gradient-to-l from-[#F4F1EF] to-transparent" />
     </div>
@@ -51,7 +49,6 @@ function MarqueeRow({
 export default function BrandsMarqueeSection({ brands }: Props) {
   return (
     <section className="relative py-16 sm:py-20 bg-[#F4F1EF] overflow-hidden">
-      {/* subtle background accents */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-[#739AD4]/10 blur-3xl" />
         <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-black/5 blur-3xl" />
@@ -72,7 +69,6 @@ export default function BrandsMarqueeSection({ brands }: Props) {
 
         <div className="mt-10 sm:mt-12 space-y-4">
           <MarqueeRow brands={brands} />
-          {/* second row in opposite direction for a richer look */}
           <MarqueeRow brands={brands} reverse />
         </div>
       </div>

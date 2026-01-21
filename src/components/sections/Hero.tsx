@@ -39,14 +39,12 @@ export function Hero() {
                 Fisherman Entertainment
               </p>
             </motion.div>
-            {/* Headline (typewriter) */}
             <motion.h1
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, ease: "easeOut", delay: 0.05 }}
               className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-white"
             >
-              {/* Part 1 (white) */}
               <Typewriter
                 words={["Entertainment the "]}
                 loop={1}
@@ -56,21 +54,19 @@ export function Hero() {
                 cursor={false}
               />
 
-              {/* Part 2 (blue) - starts after part 1 finishes */}
               <span className="text-[#739AD4]">
                 <Typewriter
                   words={["right way."]}
                   loop={1}
                   typeSpeed={60}
                   deleteSpeed={0}
-                  delaySpeed={900} // wait a bit before typing the blue part
+                  delaySpeed={900}
                   cursor
                   cursorStyle="|"
                 />
               </span>
             </motion.h1>
 
-            {/* Subtext */}
             <motion.p
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
@@ -106,7 +102,6 @@ export function Hero() {
                 Buy Tradout Ticket
               </button>
             </motion.div>
-            {/* Small trust/teaser line */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -119,7 +114,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Scroll hint */}
       <motion.div
         initial={{ opacity: 0, y: -4 }}
         animate={{ opacity: 1, y: 0 }}

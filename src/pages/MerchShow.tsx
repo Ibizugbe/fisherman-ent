@@ -2,7 +2,6 @@ import { useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiTruck } from "react-icons/fi";
-import { MdOutlineVerified } from "react-icons/md";
 
 import { Navbar } from "../components/layouts/Navbar";
 import { Footer } from "../components/layouts/Footer";

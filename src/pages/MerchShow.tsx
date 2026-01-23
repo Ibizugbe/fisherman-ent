@@ -67,7 +67,6 @@ export default function MerchShow() {
   const rating = product.rating ?? 4.8;
   const reviews = product.reviews ?? 120;
   const material = product.material ?? "100% cotton";
-  const warrantyMonths = product.warrantyMonths ?? 6;
   const deliveryLabel = product.deliveryLabel ?? "Free Delivery";
 
   const handlePaid = (order: MerchOrder) => {

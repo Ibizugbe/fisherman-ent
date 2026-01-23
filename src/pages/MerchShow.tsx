@@ -29,7 +29,7 @@ export default function MerchShow() {
 
   const product = useMemo(
     () => products.find((p: MerchProduct) => String(p.id) === String(id)),
-    [id]
+    [id],
   );
 
   const fallbackColours = ["#E5E7EB", "#111827", "#6B7280"];
@@ -171,14 +171,14 @@ export default function MerchShow() {
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  {/* <div className="flex items-center gap-3">
                     <span className="h-10 w-10 rounded-full bg-white ring-1 ring-black/5 grid place-items-center">
                       <MdOutlineVerified className="text-neutral-700 text-lg" />
                     </span>
                     <span className="text-sm text-neutral-700">
                       {warrantyMonths} month warranty
                     </span>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="mt-7">
@@ -208,7 +208,7 @@ export default function MerchShow() {
                     Buy Now
                   </button>
 
-                  <button
+                  {/* <button
                     type="button"
                     className="h-12 rounded-full bg-transparent border border-[#739AD4] text-[#739AD4] font-semibold hover:bg-white/60 active:scale-[0.99] transition"
                     onClick={() =>
@@ -221,7 +221,7 @@ export default function MerchShow() {
                     }
                   >
                     Add to cart
-                  </button>
+                  </button> */}
                 </div>
 
                 <div className="mt-6">

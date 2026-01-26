@@ -29,7 +29,7 @@ export const products = [
   },
   {
     id: 3,
-    name: "Stay Fisher Fisherman Hat",
+    name: "Stay Fishy Fisherman Hat",
     price: "NGN 30,000",
     image: merch3,
     colours: ["#111827"],

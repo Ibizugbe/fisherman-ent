@@ -9,25 +9,40 @@ export default function Contact() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+      <section className="pt-28 sm:pt-32 pb-16 sm:pb-20 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+          {/* Eyebrow */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl font-bold text-gray-900 leading-tight"
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="inline-flex items-center gap-3"
+          >
+            <span className="h-2 w-2 rounded-full bg-[#739AD4]" />
+            <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-gray-600">
+              Contact
+            </p>
+          </motion.div>
+
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.05 }}
+            className="mt-5 text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 leading-tight"
           >
             Get in touch with us.
-            <br />
-            <span className="text-4xl md:text-6xl">We’re here to assist</span>
-            <br />
-            <span className="text-6xl md:text-8xl">you</span>
+            <span className="block mt-2 text-[#739AD4]">
+              We’re here to assist you.
+            </span>
           </motion.h1>
+
+          {/* Subtext */}
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="mt-8 text-lg text-gray-600 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
+            className="mt-5 text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed"
           >
             Whether you’re an artist looking to join our family, a brand seeking
             collaboration, or a fan with questions — we’d love to hear from you.

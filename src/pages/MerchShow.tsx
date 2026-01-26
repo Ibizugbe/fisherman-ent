@@ -70,11 +70,9 @@ export default function MerchShow() {
   const deliveryLabel = product.deliveryLabel ?? "Free Delivery";
 
   const handlePaid = (order: MerchOrder) => {
-    // 1) Save immediately (source of truth for success page)
     saveOrder(order);
     sessionStorage.setItem("merch:lastPaidOrderRef", order.reference);
 
-    // 2) Fire email sending (don’t block navigation; allow resend on success page)
     (async () => {
       try {
         updateOrder(order.reference, {

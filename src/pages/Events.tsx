@@ -194,7 +194,7 @@ export default function Events() {
               Upcoming shows
             </h1>
             <p className="mt-3 text-neutral-700 text-base sm:text-lg leading-relaxed">
-              Browse events and purchase tickets directly on the site.
+              Browse events and purchase tickets.
             </p>
           </motion.div>
 

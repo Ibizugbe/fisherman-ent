@@ -60,10 +60,11 @@ export default function BrandsMarqueeSection({ brands }: Props) {
             Brands We Have Worked With
           </p>
           <h2 className="mt-3 text-3xl sm:text-4xl font-black text-gray-900">
-            Trusted by teams and sponsors
+            We are big on collaboration.
           </h2>
           <p className="mt-3 text-base sm:text-lg text-gray-600">
-            A few of the brands and collaborators we’ve supported.
+            These are the brands we have had the privilege to collaborate with.
+            Become a sponsor.{" "}
           </p>
         </div>
 

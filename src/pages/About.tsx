@@ -23,13 +23,14 @@ export default function About() {
                 About us
               </p>
               <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight">
-                About Us
+                What is Fisherman Entertainment?
               </h1>
             </div>
 
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-xl">
-              Fisherman Entertainment is a creative powerhouse that encompasses
-              every facet of production in film, music, comedy founded by{" "}
+              Fisherman Entertainment is a creative powerhouse dealing with the
+              production of film, music, comedy, and live events. It was founded
+              by{" "}
               <strong className="text-gray-900 font-semibold">
                 Netete Asowata
               </strong>{" "}

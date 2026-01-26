@@ -15,16 +15,17 @@ function FeaturedEvent({ e }: { e: (typeof EVENTS)[number] }) {
       className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch"
     >
       {/* Poster Card */}
-      <div className="relative rounded-3xl bg-white ring-1 ring-black/5 shadow-[0_18px_55px_rgba(0,0,0,0.12)] overflow-hidden flex flex-col">
+      <div className="relative rounded-3xl bg-white ring-1 ring-black/5 shadow-[0_18px_55px_rgba(0,0,0,0.12)] overflow-hidden flex flex-col min-w-0">
         <div className="absolute top-4 left-4 z-10">
           <div className="inline-flex items-center gap-2 rounded-full bg-black/40 border border-white/20 backdrop-blur-sm px-4 py-2 text-white text-xs sm:text-sm font-semibold">
             Featured event
           </div>
         </div>
 
-        {/* Keep poster fully visible */}
-        <div className="relative bg-[#0B1220] min-h-[520px] sm:min-h-[640px] lg:min-h-0 lg:flex-1">
-          <div className="absolute inset-0 p-4 sm:p-6">
+        {/* IMPORTANT: use aspect ratio on mobile instead of big min-height */}
+        <div className="relative bg-[#0B1220] aspect-[3/4] sm:aspect-[4/5] lg:aspect-auto lg:flex-1">
+          {/* IMPORTANT: avoid absolute padding that can overflow; use normal padding */}
+          <div className="h-full w-full p-4 sm:p-6">
             <div className="h-full w-full rounded-2xl bg-black/20 ring-1 ring-white/10 flex items-center justify-center overflow-hidden">
               {e.coverImage ? (
                 <img
@@ -40,9 +41,9 @@ function FeaturedEvent({ e }: { e: (typeof EVENTS)[number] }) {
           </div>
         </div>
 
-        <div className="px-6 py-5 border-t border-black/5 bg-white/85">
+        <div className="px-5 sm:px-6 py-4 sm:py-5 border-t border-black/5 bg-white/85">
           <p className="text-sm font-semibold text-[#111827]">{e.name}</p>
-          <p className="text-xs text-gray-500 mt-1">
+          <p className="text-xs text-gray-500 mt-1 break-words">
             {e.dateLabel || "TBA"} {e.timeLabel ? `• ${e.timeLabel}` : ""} •{" "}
             {e.venueLabel || "TBA"}
           </p>
@@ -50,8 +51,8 @@ function FeaturedEvent({ e }: { e: (typeof EVENTS)[number] }) {
       </div>
 
       {/* Details Card */}
-      <div className="rounded-3xl bg-white/80 ring-1 ring-black/5 shadow-[0_18px_55px_rgba(0,0,0,0.10)] p-6 sm:p-8 flex flex-col">
-        <div>
+      <div className="rounded-3xl bg-white/80 ring-1 ring-black/5 shadow-[0_18px_55px_rgba(0,0,0,0.10)] p-6 sm:p-8 flex flex-col min-w-0">
+        <div className="min-w-0">
           <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-gray-600">
             Upcoming
           </p>
@@ -68,25 +69,25 @@ function FeaturedEvent({ e }: { e: (typeof EVENTS)[number] }) {
           {/* Event details block */}
           <div className="mt-6 rounded-2xl bg-[#F9FAFF] ring-1 ring-black/5 p-4 sm:p-5">
             <div className="grid gap-3">
-              <div className="flex items-start justify-between gap-4">
-                <span className="text-sm text-gray-500">Date</span>
-                <span className="text-sm font-semibold text-[#111827] text-right">
+              <div className="flex items-start justify-between gap-4 min-w-0">
+                <span className="text-sm text-gray-500 shrink-0">Date</span>
+                <span className="text-sm font-semibold text-[#111827] text-right break-words min-w-0">
                   {e.dateLabel || "TBA"}
                 </span>
               </div>
 
               {e.timeLabel ? (
-                <div className="flex items-start justify-between gap-4">
-                  <span className="text-sm text-gray-500">Time</span>
-                  <span className="text-sm font-semibold text-[#111827] text-right">
+                <div className="flex items-start justify-between gap-4 min-w-0">
+                  <span className="text-sm text-gray-500 shrink-0">Time</span>
+                  <span className="text-sm font-semibold text-[#111827] text-right break-words min-w-0">
                     {e.timeLabel}
                   </span>
                 </div>
               ) : null}
 
-              <div className="flex items-start justify-between gap-4">
-                <span className="text-sm text-gray-500">Venue</span>
-                <span className="text-sm font-semibold text-[#111827] text-right max-w-[260px] sm:max-w-none">
+              <div className="flex items-start justify-between gap-4 min-w-0">
+                <span className="text-sm text-gray-500 shrink-0">Venue</span>
+                <span className="text-sm font-semibold text-[#111827] text-right break-words min-w-0">
                   {e.venueLabel || "TBA"}
                 </span>
               </div>
@@ -146,12 +147,14 @@ function CompactEventCard({ e }: { e: (typeof EVENTS)[number] }) {
             />
           ) : null}
         </div>
-        <div className="p-5">
-          <p className="text-sm font-extrabold text-neutral-900">{e.name}</p>
-          <p className="mt-2 text-sm text-neutral-600">
+        <div className="p-5 min-w-0">
+          <p className="text-sm font-extrabold text-neutral-900 break-words">
+            {e.name}
+          </p>
+          <p className="mt-2 text-sm text-neutral-600 break-words">
             {e.dateLabel || "TBA"} {e.timeLabel ? `• ${e.timeLabel}` : ""}
           </p>
-          <p className="mt-1 text-sm text-neutral-600 truncate">
+          <p className="mt-1 text-sm text-neutral-600 break-words">
             {e.venueLabel || "TBA"}
           </p>
 
@@ -171,8 +174,7 @@ export default function Events() {
   return (
     <>
       <Navbar />
-
-      <div className="bg-[#F4F1EF] pt-28 pb-16 overflow-hidden">
+      <div className="relative bg-[#F4F1EF] pt-28 pb-16 overflow-x-hidden">
         {/* subtle accents */}
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-[#739AD4]/10 blur-3xl" />
@@ -194,7 +196,7 @@ export default function Events() {
               Upcoming shows
             </h1>
             <p className="mt-3 text-neutral-700 text-base sm:text-lg leading-relaxed">
-              Browse events and purchase tickets directly on the site.
+              Browse events and purchase tickets.
             </p>
           </motion.div>
 

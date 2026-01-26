@@ -89,8 +89,7 @@ export default function UpcomingEventsSection() {
                 </div>
 
                 <h3 className="mt-4 text-2xl sm:text-3xl font-black text-gray-900 leading-tight">
-                  Tradout is coming.
-                  <br className="hidden sm:block" />
+                  Tradout is coming. <br className="hidden sm:block" />
                   Secure your ticket now.
                 </h3>
 

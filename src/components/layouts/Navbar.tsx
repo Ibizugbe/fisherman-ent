@@ -8,8 +8,6 @@ const navLinks = [
   { name: "Home", to: "/" },
   { name: "About Us", to: "/about" },
   { name: "Events", to: "/events" },
-  { name: "Merch", to: "/merch" },
-  { name: "Contacts", to: "/contact" },
 ];
 
 export function Navbar() {

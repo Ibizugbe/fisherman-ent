@@ -128,7 +128,7 @@ export default function MerchOrderSuccess() {
                   </p>
                 </div>
 
-                <div className="border border-neutral-200 rounded-xl p-4">
+                {/* <div className="border border-neutral-200 rounded-xl p-4">
                   <p className="font-semibold text-neutral-900">Email status</p>
                   <p className="text-sm text-neutral-700 mt-2">
                     Admin:{" "}
@@ -145,7 +145,7 @@ export default function MerchOrderSuccess() {
                       {order.emailStatus.lastError}
                     </p>
                   )}
-                </div>
+                </div> */}
 
                 <button
                   type="button"

@@ -6,7 +6,7 @@ export const products = [
   {
     id: 1,
     name: "Stay Fishy Tee Stonewash",
-    price: "NGN 3,000",
+    price: "NGN 40,000",
     image: merch1,
     colours: ["#405F8D"],
     material: "100% cotton",
@@ -18,7 +18,7 @@ export const products = [
   {
     id: 2,
     name: "Stay Fishy Tank Stonewash",
-    price: "NGN 3,000",
+    price: "NGN 40,000",
     image: merch2,
     colours: ["#405F8D"],
     material: "100% cotton",
@@ -30,7 +30,7 @@ export const products = [
   {
     id: 3,
     name: "Stay Fishy Fisherman Hat",
-    price: "NGN 2,000",
+    price: "NGN 30,000",
     image: merch3,
     colours: ["#111827"],
     material: "100% cotton",

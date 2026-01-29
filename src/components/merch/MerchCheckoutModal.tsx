@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { MerchOrder, MerchProduct } from "../../types/merch";
 import { parseNGNPrice, toKobo } from "../../utils/money";
 import { makePaystackReference } from "../../utils/ref";
@@ -39,6 +39,15 @@ export default function MerchCheckoutModal({
     city: "",
     state: "",
   });
+
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [open]);
 
   const publicKey = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY as string;
 
@@ -216,9 +225,7 @@ export default function MerchCheckoutModal({
                       </label>
 
                       <label className="grid gap-1">
-                        <span className="text-sm text-neutral-700">
-                          Phone (optional)
-                        </span>
+                        <span className="text-sm text-neutral-700">Phone</span>
                         <input
                           value={customerPhone}
                           onChange={(e) => setCustomerPhone(e.target.value)}

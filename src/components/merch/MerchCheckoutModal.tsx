@@ -217,7 +217,7 @@ export default function MerchCheckoutModal({
 
                       <label className="grid gap-1">
                         <span className="text-sm text-neutral-700">
-                          Phone (optional)
+                          Phone
                         </span>
                         <input
                           value={customerPhone}

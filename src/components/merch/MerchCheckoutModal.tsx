@@ -44,7 +44,7 @@ export default function MerchCheckoutModal({
 
   const unitPriceNaira = useMemo(
     () => parseNGNPrice(product.price),
-    [product.price]
+    [product.price],
   );
   const totalNaira = useMemo(() => unitPriceNaira * qty, [unitPriceNaira, qty]);
 
@@ -145,144 +145,153 @@ export default function MerchCheckoutModal({
             onClick={onClose}
           />
           <motion.div
-            className="fixed inset-0 z-[61] grid place-items-center p-4"
+            className="fixed inset-0 z-[61] overflow-y-auto p-4"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
           >
-            <div className="w-full max-w-2xl rounded-2xl bg-white shadow-[0_20px_80px_rgba(0,0,0,0.25)] overflow-hidden">
-              <div className="p-5 border-b border-black/5 flex items-center justify-between">
-                <p className="text-lg font-semibold text-neutral-900">
-                  Checkout
-                </p>
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="h-10 w-10 rounded-full hover:bg-black/5"
-                  aria-label="Close"
-                >
-                  ✕
-                </button>
-              </div>
-
-              <div className="p-5">
-                {/* Summary */}
-                <div className="flex gap-4">
-                  <div className="h-20 w-20 rounded-xl overflow-hidden bg-neutral-200">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="font-semibold text-neutral-900 truncate">
-                      {product.name}
-                    </p>
-                    <p className="text-sm text-neutral-600 mt-1">
-                      Size: <span className="font-medium">{selectedSize}</span>{" "}
-                      • Colour:{" "}
-                      <span className="font-medium">{selectedColour}</span> •
-                      Qty: <span className="font-medium">{qty}</span>
-                    </p>
-                    <p className="text-sm text-neutral-700 mt-2">
-                      Total:{" "}
-                      <span className="font-semibold">
-                        NGN {totalNaira.toLocaleString()}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-
-                {/* Forms */}
-                <div className="mt-6 grid gap-5">
-                  <div className="grid gap-3">
-                    <p className="font-semibold text-neutral-900">Contact</p>
-
-                    <label className="grid gap-1">
-                      <span className="text-sm text-neutral-700">Email</span>
-                      <input
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        type="email"
-                        className="h-12 rounded-xl border border-neutral-200 px-4 outline-none focus:border-neutral-400"
-                        placeholder="you@example.com"
-                      />
-                    </label>
-
-                    <label className="grid gap-1">
-                      <span className="text-sm text-neutral-700">
-                        Phone (optional)
-                      </span>
-                      <input
-                        value={customerPhone}
-                        onChange={(e) => setCustomerPhone(e.target.value)}
-                        type="tel"
-                        className="h-12 rounded-xl border border-neutral-200 px-4 outline-none focus:border-neutral-400"
-                        placeholder="+234..."
-                      />
-                    </label>
-                  </div>
-
-                  <div className="grid gap-3">
-                    <p className="font-semibold text-neutral-900">Delivery</p>
-
-                    {[
-                      ["Full name", "fullName"],
-                      ["Phone", "phone"],
-                      ["Address", "address"],
-                      ["City", "city"],
-                      ["State", "state"],
-                    ].map(([label, key]) => (
-                      <label key={key} className="grid gap-1">
-                        <span className="text-sm text-neutral-700">
-                          {label}
-                        </span>
-                        <input
-                          value={(delivery as any)[key]}
-                          onChange={(e) =>
-                            setDelivery((p) => ({
-                              ...p,
-                              [key]: e.target.value,
-                            }))
-                          }
-                          className="h-12 rounded-xl border border-neutral-200 px-4 outline-none focus:border-neutral-400"
-                        />
-                      </label>
-                    ))}
-                  </div>
-
-                  {err && (
-                    <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-xl p-3">
-                      {err}
-                    </p>
-                  )}
-                </div>
-
-                <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="min-h-full flex items-start sm:items-center justify-center">
+              <div className="w-full max-w-2xl rounded-2xl bg-white shadow-[0_20px_80px_rgba(0,0,0,0.25)] overflow-hidden flex flex-col max-h-[calc(100vh-2rem)]">
+                {/* Header (fixed) */}
+                <div className="p-5 border-b border-black/5 flex items-center justify-between shrink-0">
+                  <p className="text-lg font-semibold text-neutral-900">
+                    Checkout
+                  </p>
                   <button
                     type="button"
                     onClick={onClose}
-                    className="h-12 rounded-full border border-neutral-300 text-neutral-800 font-semibold hover:bg-neutral-50 disabled:opacity-60"
-                    disabled={submitting}
+                    className="h-10 w-10 rounded-full hover:bg-black/5"
+                    aria-label="Close"
                   >
-                    Cancel
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={handlePay}
-                    className="h-12 rounded-full bg-[#739AD4] text-white font-semibold hover:brightness-95 disabled:opacity-60"
-                    disabled={submitting}
-                  >
-                    {submitting ? "Opening payment..." : "Pay now"}
+                    ✕
                   </button>
                 </div>
 
-                <p className="mt-4 text-xs text-neutral-500">
-                  Payment opens in a secure Paystack popup. You remain on this
-                  site.
-                </p>
+                {/* Body (scrollable) */}
+                <div className="p-5 overflow-y-auto flex-1">
+                  {/* Summary */}
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-xl overflow-hidden bg-neutral-200 shrink-0">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+
+                    <div className="min-w-0">
+                      <p className="font-semibold text-neutral-900 truncate">
+                        {product.name}
+                      </p>
+                      <p className="text-sm text-neutral-600 mt-1">
+                        Size:{" "}
+                        <span className="font-medium">{selectedSize}</span> •
+                        Colour:{" "}
+                        <span className="font-medium">{selectedColour}</span> •
+                        Qty: <span className="font-medium">{qty}</span>
+                      </p>
+                      <p className="text-sm text-neutral-700 mt-2">
+                        Total:{" "}
+                        <span className="font-semibold">
+                          NGN {totalNaira.toLocaleString()}
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Forms */}
+                  <div className="mt-6 grid gap-5">
+                    <div className="grid gap-3">
+                      <p className="font-semibold text-neutral-900">Contact</p>
+
+                      <label className="grid gap-1">
+                        <span className="text-sm text-neutral-700">Email</span>
+                        <input
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          type="email"
+                          className="h-12 rounded-xl border border-neutral-200 px-4 outline-none focus:border-neutral-400"
+                          placeholder="you@example.com"
+                        />
+                      </label>
+
+                      <label className="grid gap-1">
+                        <span className="text-sm text-neutral-700">
+                          Phone (optional)
+                        </span>
+                        <input
+                          value={customerPhone}
+                          onChange={(e) => setCustomerPhone(e.target.value)}
+                          type="tel"
+                          className="h-12 rounded-xl border border-neutral-200 px-4 outline-none focus:border-neutral-400"
+                          placeholder="+234..."
+                        />
+                      </label>
+                    </div>
+
+                    <div className="grid gap-3">
+                      <p className="font-semibold text-neutral-900">Delivery</p>
+
+                      {[
+                        ["Full name", "fullName"],
+                        ["Phone", "phone"],
+                        ["Address", "address"],
+                        ["City", "city"],
+                        ["State", "state"],
+                      ].map(([label, key]) => (
+                        <label key={key} className="grid gap-1">
+                          <span className="text-sm text-neutral-700">
+                            {label}
+                          </span>
+                          <input
+                            value={(delivery as any)[key]}
+                            onChange={(e) =>
+                              setDelivery((p) => ({
+                                ...p,
+                                [key]: e.target.value,
+                              }))
+                            }
+                            className="h-12 rounded-xl border border-neutral-200 px-4 outline-none focus:border-neutral-400"
+                          />
+                        </label>
+                      ))}
+                    </div>
+
+                    {err && (
+                      <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-xl p-3">
+                        {err}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                {/* Footer (always visible) */}
+                <div className="p-5 border-t border-black/5 bg-white shrink-0">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <button
+                      type="button"
+                      onClick={onClose}
+                      className="h-12 rounded-full border border-neutral-300 text-neutral-800 font-semibold hover:bg-neutral-50 disabled:opacity-60"
+                      disabled={submitting}
+                    >
+                      Cancel
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={handlePay}
+                      className="h-12 rounded-full bg-[#739AD4] text-white font-semibold hover:brightness-95 disabled:opacity-60"
+                      disabled={submitting}
+                    >
+                      {submitting ? "Opening payment..." : "Pay now"}
+                    </button>
+                  </div>
+
+                  <p className="mt-4 text-xs text-neutral-500">
+                    Payment opens in a secure Paystack popup. You remain on this
+                    site.
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>

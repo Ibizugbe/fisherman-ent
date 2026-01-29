@@ -34,7 +34,7 @@ export default function TicketCheckoutModal({
   const quantity = useMemo(() => Math.max(1, Number(qty) || 1), [qty]);
   const totalNaira = useMemo(
     () => event.priceNaira * quantity,
-    [event.priceNaira, quantity]
+    [event.priceNaira, quantity],
   );
 
   const validate = (): string | null => {
@@ -201,9 +201,7 @@ export default function TicketCheckoutModal({
               </label>
 
               <label className="grid gap-1">
-                <span className="text-sm text-neutral-700">
-                  Phone (optional)
-                </span>
+                <span className="text-sm text-neutral-700">Phone</span>
                 <input
                   type="tel"
                   className="h-12 rounded-xl border border-neutral-200 px-4 outline-none focus:border-neutral-400"

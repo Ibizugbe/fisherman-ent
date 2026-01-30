@@ -1,8 +1,7 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import type { MerchOrder } from "../../types/merch";
-import { getOrderByReference, updateOrder } from "../../utils/storage";
-import { sendOrderEmails } from "../../lib/email";
+import { getOrderByReference } from "../../utils/storage";
 import { Navbar } from "../layouts/Navbar";
 import { Footer } from "../layouts/Footer";
 
@@ -14,43 +13,7 @@ function useQuery() {
 export default function MerchOrderSuccess() {
   const q = useQuery();
   const ref = q.get("ref") || "";
-
-  const [sending, setSending] = useState(false);
   const order: MerchOrder | null = ref ? getOrderByReference(ref) : null;
-
-  const resend = async () => {
-    if (!order) return;
-    setSending(true);
-    try {
-      updateOrder(order.reference, {
-        emailStatus: {
-          ...order.emailStatus,
-          admin: "pending",
-          customer: "pending",
-        },
-      });
-      await sendOrderEmails(order);
-      updateOrder(order.reference, {
-        emailStatus: {
-          admin: "sent",
-          customer: "sent",
-          lastSentAtISO: new Date().toISOString(),
-        },
-      });
-      alert("Confirmation emails sent.");
-    } catch (e: any) {
-      updateOrder(order.reference, {
-        emailStatus: {
-          admin: "failed",
-          customer: "failed",
-          lastError: e?.message || "Email failed",
-        },
-      });
-      alert(e?.message || "Email failed.");
-    } finally {
-      setSending(false);
-    }
-  };
 
   return (
     <>
@@ -127,34 +90,6 @@ export default function MerchOrderSuccess() {
                     {order.delivery.state}
                   </p>
                 </div>
-
-                {/* <div className="border border-neutral-200 rounded-xl p-4">
-                  <p className="font-semibold text-neutral-900">Email status</p>
-                  <p className="text-sm text-neutral-700 mt-2">
-                    Admin:{" "}
-                    <span className="font-medium">
-                      {order.emailStatus?.admin || "unknown"}
-                    </span>{" "}
-                    • Customer:{" "}
-                    <span className="font-medium">
-                      {order.emailStatus?.customer || "unknown"}
-                    </span>
-                  </p>
-                  {order.emailStatus?.lastError && (
-                    <p className="text-xs text-red-600 mt-2">
-                      {order.emailStatus.lastError}
-                    </p>
-                  )}
-                </div> */}
-
-                <button
-                  type="button"
-                  onClick={resend}
-                  disabled={sending}
-                  className="h-12 w-full rounded-full bg-[#739AD4] text-white font-semibold hover:brightness-95 disabled:opacity-60"
-                >
-                  {sending ? "Sending..." : "Resend confirmation email"}
-                </button>
               </div>
             </div>
           )}

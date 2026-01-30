@@ -67,25 +67,6 @@ export default function TicketOrderSuccess() {
                   </p>
                 ) : null}
               </div>
-
-              <div className="mt-4 border border-neutral-200 rounded-xl p-4">
-                <p className="font-semibold text-neutral-900">Email status</p>
-                <p className="text-sm text-neutral-700 mt-2">
-                  Admin:{" "}
-                  <span className="font-medium">
-                    {order.emailStatus?.admin || "unknown"}
-                  </span>{" "}
-                  • Customer:{" "}
-                  <span className="font-medium">
-                    {order.emailStatus?.customer || "unknown"}
-                  </span>
-                </p>
-                {order.emailStatus?.lastError ? (
-                  <p className="text-xs text-red-600 mt-2">
-                    {order.emailStatus.lastError}
-                  </p>
-                ) : null}
-              </div>
             </div>
           )}
 

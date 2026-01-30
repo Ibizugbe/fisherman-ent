@@ -127,34 +127,6 @@ export default function MerchOrderSuccess() {
                     {order.delivery.state}
                   </p>
                 </div>
-
-                {/* <div className="border border-neutral-200 rounded-xl p-4">
-                  <p className="font-semibold text-neutral-900">Email status</p>
-                  <p className="text-sm text-neutral-700 mt-2">
-                    Admin:{" "}
-                    <span className="font-medium">
-                      {order.emailStatus?.admin || "unknown"}
-                    </span>{" "}
-                    • Customer:{" "}
-                    <span className="font-medium">
-                      {order.emailStatus?.customer || "unknown"}
-                    </span>
-                  </p>
-                  {order.emailStatus?.lastError && (
-                    <p className="text-xs text-red-600 mt-2">
-                      {order.emailStatus.lastError}
-                    </p>
-                  )}
-                </div> */}
-
-                <button
-                  type="button"
-                  onClick={resend}
-                  disabled={sending}
-                  className="h-12 w-full rounded-full bg-[#739AD4] text-white font-semibold hover:brightness-95 disabled:opacity-60"
-                >
-                  {sending ? "Sending..." : "Resend confirmation email"}
-                </button>
               </div>
             </div>
           )}

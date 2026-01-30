@@ -1,8 +1,7 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import type { MerchOrder } from "../../types/merch";
-import { getOrderByReference, updateOrder } from "../../utils/storage";
-import { sendOrderEmails } from "../../lib/email";
+import { getOrderByReference } from "../../utils/storage";
 import { Navbar } from "../layouts/Navbar";
 import { Footer } from "../layouts/Footer";
 
@@ -14,43 +13,7 @@ function useQuery() {
 export default function MerchOrderSuccess() {
   const q = useQuery();
   const ref = q.get("ref") || "";
-
-  const [sending, setSending] = useState(false);
   const order: MerchOrder | null = ref ? getOrderByReference(ref) : null;
-
-  const resend = async () => {
-    if (!order) return;
-    setSending(true);
-    try {
-      updateOrder(order.reference, {
-        emailStatus: {
-          ...order.emailStatus,
-          admin: "pending",
-          customer: "pending",
-        },
-      });
-      await sendOrderEmails(order);
-      updateOrder(order.reference, {
-        emailStatus: {
-          admin: "sent",
-          customer: "sent",
-          lastSentAtISO: new Date().toISOString(),
-        },
-      });
-      alert("Confirmation emails sent.");
-    } catch (e: any) {
-      updateOrder(order.reference, {
-        emailStatus: {
-          admin: "failed",
-          customer: "failed",
-          lastError: e?.message || "Email failed",
-        },
-      });
-      alert(e?.message || "Email failed.");
-    } finally {
-      setSending(false);
-    }
-  };
 
   return (
     <>

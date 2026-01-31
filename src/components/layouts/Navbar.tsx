@@ -80,6 +80,18 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
+            <Link
+              to="/merch"
+              className={`${linkBase} ${isActive("/merch") ? linkActive : ""}`}
+            >
+              Merch
+            </Link>
+            <Link
+              to="/contact"
+              className={`${linkBase} ${isActive("/contact") ? linkActive : ""}`}
+            >
+              Contact
+            </Link>
           </div>
 
           {/* Mobile toggle */}

@@ -76,6 +76,7 @@ export default function TicketCheckoutModal({
           eventId: event.id,
           eventName: event.name,
           eventDate: event.dateLabel || "",
+          eventTime: event.timeLabel || "",
           eventVenue: event.venueLabel || "",
           currency: "NGN",
           unitPriceNaira: event.priceNaira,

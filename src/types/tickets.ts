@@ -4,6 +4,7 @@ export type TicketEvent = {
   currency: "NGN";
   priceNaira: number; // 15000
   dateLabel?: string;
+  timeLabel?: string;
   venueLabel?: string;
 };
 
@@ -27,6 +28,7 @@ export type TicketOrder = {
   eventId: string;
   eventName: string;
   eventDate?: string;
+  eventTime?: string;
   eventVenue?: string;
 
   currency: "NGN";

@@ -42,6 +42,14 @@ export default function EventShow() {
 
     (async () => {
       try {
+        updateTicketOrder(order.reference, {
+          emailStatus: {
+            ...order.emailStatus,
+            admin: "pending",
+            customer: "pending",
+          },
+        });
+
         await sendTicketEmails(order);
         updateTicketOrder(order.reference, {
           emailStatus: {

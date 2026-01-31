@@ -3,6 +3,7 @@ import type { MerchOrder } from "../types/merch";
 
 function buildOrderSummary(order: MerchOrder) {
   const lines: string[] = [];
+  lines.push("Type: Merch");
   lines.push(`Reference: ${order.reference}`);
   lines.push(`Date: ${order.createdAtISO}`);
   lines.push(`Total: NGN ${order.amountNaira.toLocaleString()}`);
@@ -39,7 +40,7 @@ export async function sendOrderEmails(order: MerchOrder) {
   const tplAdmin = env("VITE_EMAILJS_TEMPLATE_ADMIN");
   const tplCustomer = env("VITE_EMAILJS_TEMPLATE_CUSTOMER");
 
-  if (!publicKey || !serviceId || !tplAdmin || !tplCustomer) {
+  if (!publicKey || !serviceId || !tplAdmin) {
     throw new Error("Missing EmailJS env vars.");
   }
 
@@ -53,6 +54,11 @@ export async function sendOrderEmails(order: MerchOrder) {
       to_email: "contact@fishermanent.com",
       subject: `New Merch Order — ${order.reference}`,
       order_reference: order.reference,
+      order_type: "Merch",
+      intro_text:
+        "We’ve received your payment and your merch is now queued for fulfilment. Keep this email for your records.",
+      ticket_section: "",
+      ticket_section_display: "display:none;",
       customer_email: order.customer.email,
       customer_phone: order.customer.phone,
       order_total: `NGN ${order.amountNaira.toLocaleString()}`,
@@ -62,13 +68,19 @@ export async function sendOrderEmails(order: MerchOrder) {
   );
 
   // Customer email
+  const customerTpl = tplCustomer || tplAdmin;
   await emailjs.send(
     serviceId,
-    tplCustomer,
+    customerTpl,
     {
       to_email: order.customer.email,
       subject: `Your order is confirmed — ${order.reference}`,
       order_reference: order.reference,
+      order_type: "Merch",
+      intro_text:
+        "We’ve received your payment and your merch is now queued for fulfilment. Keep this email for your records.",
+      ticket_section: "",
+      ticket_section_display: "display:none;",
       order_total: `NGN ${order.amountNaira.toLocaleString()}`,
       order_summary: summary,
     },

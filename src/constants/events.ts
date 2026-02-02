@@ -12,7 +12,7 @@ export const EVENTS: EventItem[] = [
     id: "tradout",
     name: "Tradout",
     currency: "NGN",
-    priceNaira: 15000,
+    priceNaira: 2000,
     dateLabel: "8th March 2026",
     timeLabel: "5:00 PM",
     venueLabel: "Victor Uwaifo Hub, Benin City, Edo State",

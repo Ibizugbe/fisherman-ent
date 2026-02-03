@@ -13,9 +13,10 @@ export const EVENTS: EventItem[] = [
     name: "Tradout",
     currency: "NGN",
     priceNaira: 2000,
-    dateLabel: "8th March 2026",
+    dateLabel: "Sunday, March 8th, 2026",
     timeLabel: "5:00 PM",
-    venueLabel: "Victor Uwaifo Hub, Benin City, Edo State",
+    venueLabel:
+      "Victor Uwaifo Hub, Observer Newspaper Compound (Opposite Vegetable Market), Airport Road, Benin City.",
     description:
       "Tradout is a live show experience. Get your ticket and be part of the moment.",
     coverImage: TradOut,

@@ -38,10 +38,7 @@ export async function sendTicketEmails(order: TicketOrder) {
   }
 
   const summary = buildTicketSummary(order);
-  const ticketSection = `Event Details
-• Date: ${order.eventDate || "TBA"}
-• Time: ${order.eventTime || "TBA"}
-• Venue: ${order.eventVenue || "TBA"}
+  const ticketSection = `
 
 The Experience
 TradOut 1.0 is a high-energy comedy experience designed for you. Expect a lineup featuring a mix of up-and-coming and seasoned industry professionals.

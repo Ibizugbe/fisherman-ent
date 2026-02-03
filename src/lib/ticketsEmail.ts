@@ -44,23 +44,17 @@ export async function sendTicketEmails(order: TicketOrder) {
 • Venue: ${order.eventVenue || "TBA"}
 
 The Experience
-TradOut 1.0 is more than just a comedy show; it’s a high-energy experience designed to unite comedy lovers across Benin City.
-
-You can expect a tightly packed lineup featuring a mix of raw, up-and-coming local talent and seasoned industry professionals.
-
-Beyond the stand-up sets, get ready for interactive games and special goodies tailored for you.
-
-Pro-tip: We’ve curated this show to be fast-paced and impactful from the very first minute. Please arrive early to enjoy our interactive experience and play some games, before grabbing a great seat and enjoying the full experience from start to finish.
-
-Don’t Miss this Inside Scoop
-The show is just the beginning. To truly get the most out of this experience, you need to be in our Telegram Community.
-
-Now, this isn't one of those broadcast lists; it’s an opportunity to peek behind the curtains. By joining, you get exclusive behind-the-scenes access, instant updates on TradOut 1.0, and first-dibs (plus possible discounts) on all subsequent shows.
-
-We are building a movement of comedy lovers who want to be part of a new breed of comedy in Benin City—don’t get left on the outside.
-
+TradOut 1.0 is a high-energy comedy experience designed for you. Expect a lineup featuring a mix of up-and-coming and seasoned industry professionals.
+ 
+Pro-tip: Please arrive early to enjoy our interactive experience.
+ 
+Join Our Community
+To truly get the most out of this experience, you need to be in our Telegram Community. By joining, you get exclusive behind-the-scenes access, instant updates on TradOut 1.0, and first-dibs (plus possible discounts) on all subsequent shows.
+ 
+Click the telegram link below to join the Telegram Community
+ 
 See you at the Hub!
-
+ 
 Best regards,
 The TradOut Team`;
 
@@ -82,7 +76,7 @@ The TradOut Team`;
       order_total: `NGN ${order.amountNaira.toLocaleString()}`,
       order_summary: summary,
     },
-    { publicKey }
+    { publicKey },
   );
 
   // Customer
@@ -102,6 +96,6 @@ The TradOut Team`;
       order_total: `NGN ${order.amountNaira.toLocaleString()}`,
       order_summary: summary,
     },
-    { publicKey }
+    { publicKey },
   );
 }

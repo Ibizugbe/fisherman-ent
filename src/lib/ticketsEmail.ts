@@ -50,13 +50,16 @@ Pro-tip: Please arrive early to enjoy our interactive experience.
  
 Join Our Community
 To truly get the most out of this experience, you need to be in our Telegram Community. By joining, you get exclusive behind-the-scenes access, instant updates on TradOut 1.0, and first-dibs (plus possible discounts) on all subsequent shows.
- 
-Click the telegram link below to join the Telegram Community
- 
+  
+Need help or have questions? Reply to this email or reach us at contact@fishermanent.com.
+
 See you at the Hub!
  
 Best regards,
 The TradOut Team`;
+
+  const telegramUrl = "https://t.me/fishermanent";
+  const telegramCta = "Click here to join the Telegram Community";
 
   // Admin
   await emailjs.send(
@@ -71,6 +74,8 @@ The TradOut Team`;
         "We’ve received your payment and your ticket is confirmed. Keep this email for your records.",
       ticket_section: ticketSection,
       ticket_section_display: "display:block;",
+      telegram_url: telegramUrl,
+      telegram_cta: telegramCta,
       customer_email: order.attendee.email,
       customer_phone: order.attendee.phone || "",
       order_total: `NGN ${order.amountNaira.toLocaleString()}`,
@@ -93,6 +98,8 @@ The TradOut Team`;
         "We’ve received your payment and your ticket is confirmed. Keep this email for your records.",
       ticket_section: ticketSection,
       ticket_section_display: "display:block;",
+      telegram_url: telegramUrl,
+      telegram_cta: telegramCta,
       order_total: `NGN ${order.amountNaira.toLocaleString()}`,
       order_summary: summary,
     },

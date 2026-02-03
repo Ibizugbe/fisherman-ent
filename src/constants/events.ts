@@ -12,7 +12,7 @@ export const EVENTS: EventItem[] = [
     id: "tradout",
     name: "Tradout",
     currency: "NGN",
-    priceNaira: 2000,
+    priceNaira: 15000,
     dateLabel: "Sunday, March 8th, 2026",
     timeLabel: "5:00 PM",
     venueLabel:

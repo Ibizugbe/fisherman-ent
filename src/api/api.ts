@@ -1,7 +1,3 @@
-import merch1 from "../assets/merch/StayFishyTop.jpg";
-import merch2 from "../assets/merch/StayFishyTanktop.jpg";
-import merch3 from "../assets/merch/StayFishyHat.jpg";
-import merchAlt1 from "../assets/merch/merch1.jpeg";
 import merchAlt2 from "../assets/merch/merch2.jpeg";
 import merchAlt3 from "../assets/merch/merch3.jpeg";
 import merchAlt4 from "../assets/merch/merchh4.jpeg";

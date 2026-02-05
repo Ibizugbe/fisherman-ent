@@ -3,6 +3,7 @@ export type MerchProduct = {
   name: string;
   price: string; // e.g. "NGN 20,000"
   image: string;
+  images?: string[];
   colours?: string[];
   material?: string;
   rating?: number;

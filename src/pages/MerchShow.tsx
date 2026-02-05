@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FiTruck } from "react-icons/fi";
@@ -38,6 +38,12 @@ export default function MerchShow() {
   const [selectedSize, setSelectedSize] = useState(DEFAULT_SIZES[1]);
   const [qty, setQty] = useState(1);
   const [checkoutOpen, setCheckoutOpen] = useState(false);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+
+  useEffect(() => {
+    if (!product) return;
+    setActiveImageIndex(0);
+  }, [product?.id]);
 
   const youMayAlsoLike = useMemo(() => {
     const others = products.filter((p: MerchProduct) => p.id !== product?.id);
@@ -63,6 +69,25 @@ export default function MerchShow() {
       </>
     );
   }
+
+  const galleryImages = (
+    product.images?.length ? product.images : [product.image]
+  ).filter(Boolean);
+
+  const activeImage =
+    galleryImages[activeImageIndex] ?? galleryImages[0] ?? product.image;
+
+  const handlePrevImage = () => {
+    setActiveImageIndex((prev) =>
+      prev === 0 ? galleryImages.length - 1 : prev - 1,
+    );
+  };
+
+  const handleNextImage = () => {
+    setActiveImageIndex((prev) =>
+      prev === galleryImages.length - 1 ? 0 : prev + 1,
+    );
+  };
 
   const rating = product.rating ?? 4.8;
   const reviews = product.reviews ?? 120;
@@ -122,13 +147,62 @@ export default function MerchShow() {
             >
               {/* Left */}
               <div className="rounded-2xl overflow-hidden bg-neutral-200/70 ring-1 ring-black/5 shadow-[0_18px_55px_rgba(0,0,0,0.12)]">
-                <div className="aspect-[4/3] sm:aspect-[5/4] w-full">
-                  <img
-                    src={product.image}
+                <div className="relative aspect-[4/3] sm:aspect-[5/4] w-full">
+                  <motion.img
+                    key={activeImage}
+                    src={activeImage}
                     alt={product.name}
                     className="h-full w-full object-cover object-center"
+                    initial={{ opacity: 0.4, scale: 0.985 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.35 }}
                   />
+                  {galleryImages.length > 1 && (
+                    <>
+                      <button
+                        type="button"
+                        aria-label="Previous image"
+                        onClick={handlePrevImage}
+                        className="absolute left-3 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white/90 text-neutral-800 shadow-md hover:bg-white transition"
+                      >
+                        {"<"}
+                      </button>
+                      <button
+                        type="button"
+                        aria-label="Next image"
+                        onClick={handleNextImage}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white/90 text-neutral-800 shadow-md hover:bg-white transition"
+                      >
+                        {">"}
+                      </button>
+                    </>
+                  )}
                 </div>
+
+                {galleryImages.length > 1 && (
+                  <div className="flex items-center gap-3 px-4 py-4 bg-white/70">
+                    {galleryImages.map((image, index) => (
+                      <button
+                        key={`${image}-${index}`}
+                        type="button"
+                        onClick={() => setActiveImageIndex(index)}
+                        className={`h-14 w-14 rounded-lg overflow-hidden border transition ${
+                          index === activeImageIndex
+                            ? "border-neutral-900 ring-2 ring-neutral-900/20"
+                            : "border-transparent hover:border-neutral-300"
+                        }`}
+                        aria-label={`View image ${index + 1}`}
+                      >
+                        <img
+                          src={image}
+                          alt={`${product.name} ${index + 1}`}
+                          className="h-full w-full object-cover object-center"
+                          loading="lazy"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                )}
               </div>
 
               {/* Right */}

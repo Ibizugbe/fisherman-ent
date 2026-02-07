@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "../ui/Button";
-import merch from "../../assets/merch/fishy_Model.png";
+import merch from "../../assets/merch/merch8.jpeg";
 import { useNavigate } from "react-router-dom";
 
 export function MerchSection() {

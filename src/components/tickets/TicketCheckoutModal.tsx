@@ -4,6 +4,7 @@ import type { TicketEvent, TicketOrder } from "../../types/tickets";
 import { makePaystackReference } from "../../utils/ref";
 import { toKobo } from "../../utils/money";
 import { startPaystackPayment } from "../../lib/paystack";
+import { logGuestListEntry } from "../../lib/guestList";
 
 type Props = {
   open: boolean;
@@ -89,6 +90,10 @@ export default function TicketCheckoutModal({
           },
           emailStatus: { admin: "pending", customer: "pending" },
         };
+
+        void logGuestListEntry(order).catch((e) => {
+          console.warn("Guest list logging failed", e);
+        });
 
         onPaid(order);
       },

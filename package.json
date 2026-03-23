@@ -5,9 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:all": "concurrently \"vite\" \"tsx watch server/index.ts\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "tsx watch server/index.ts",
+    "server:prod": "tsx server/index.ts"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -15,6 +18,9 @@
     "@supabase/supabase-js": "^2.95.2",
     "@tailwindcss/vite": "^4.1.17",
     "clsx": "^2.1.1",
+    "concurrently": "^9.2.1",
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1",
     "framer-motion": "^12.23.25",
     "lucide-react": "^0.555.0",
     "react": "^19.2.0",
@@ -26,6 +32,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@types/express": "^4.17.21",
     "@types/node": "^24.10.1",
     "@types/paystack__inline-js": "^1.0.2",
     "@types/react": "^19.2.5",
@@ -38,6 +45,7 @@
     "globals": "^16.5.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.17",
+    "tsx": "^4.20.5",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4"

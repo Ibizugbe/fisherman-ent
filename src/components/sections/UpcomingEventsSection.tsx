@@ -70,9 +70,11 @@ export default function UpcomingEventsSection() {
               </div>
 
               <div className="px-6 py-5 border-t border-black/5 bg-white/80">
-                <p className="text-sm font-semibold text-[#111827]">Tradout</p>
+                <p className="text-sm font-semibold text-[#111827]">
+                  Tradout 2.0
+                </p>
                 <p className="text-xs text-gray-500 mt-1">
-                  8th March 2026 • 5:00 PM • Victor Uwaifo Hub
+                  21st june 2026 • 5:00 PM
                 </p>
               </div>
             </div>
@@ -89,7 +91,7 @@ export default function UpcomingEventsSection() {
                 </div>
 
                 <h3 className="mt-4 text-2xl sm:text-3xl font-black text-gray-900 leading-tight">
-                  Tradout is coming. <br className="hidden sm:block" />
+                  Tradout 2.0 is coming. <br className="hidden sm:block" />
                   Secure your ticket now.
                 </h3>
 
@@ -99,7 +101,7 @@ export default function UpcomingEventsSection() {
                     <div className="flex items-start justify-between gap-4">
                       <span className="text-sm text-gray-500">Date</span>
                       <span className="text-sm font-semibold text-[#111827] text-right">
-                        8th March 2026
+                        21st June 2026
                       </span>
                     </div>
 
@@ -113,7 +115,7 @@ export default function UpcomingEventsSection() {
                     <div className="flex items-start justify-between gap-4">
                       <span className="text-sm text-gray-500">Venue</span>
                       <span className="text-sm font-semibold text-[#111827] text-right max-w-[260px] sm:max-w-none">
-                        Victor Uwaifo Hub, Benin City, Edo State
+                        To be announced!
                       </span>
                     </div>
                   </div>

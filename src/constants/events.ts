@@ -1,27 +1,22 @@
-import type { TicketEvent } from "../types/tickets";
 import TradOut from "../assets/tradout/TRADOUT.jpg";
+import {
+  EVENTS as CORE_EVENTS,
+  getEventById as getCoreEventById,
+  type EventCore,
+} from "../../shared/events";
 
-export type EventItem = TicketEvent & {
-  description?: string;
+export type EventItem = EventCore & {
   coverImage?: string;
-  timeLabel?: string;
 };
 
-export const EVENTS: EventItem[] = [
-  {
-    id: "tradout",
-    name: "Tradout",
-    currency: "NGN",
-    priceNaira: 15000,
-    dateLabel: "Sunday, March 8th, 2026",
-    timeLabel: "5:00 PM",
-    venueLabel:
-      "Victor Uwaifo Hub, Observer Newspaper Compound (Opposite Vegetable Market), Airport Road, Benin City.",
-    description:
-      "Tradout is a live show experience. Get your ticket and be part of the moment.",
-    coverImage: TradOut,
-  },
-];
+export const EVENTS: EventItem[] = CORE_EVENTS.map((event) => ({
+  ...event,
+  coverImage: event.id === "tradout" ? TradOut : undefined,
+}));
 
 export const getEventById = (id: string): EventItem | undefined =>
-  EVENTS.find((e) => e.id === id);
+  EVENTS.find((e) => e.id === id) ??
+  (() => {
+    const core = getCoreEventById(id);
+    return core ? { ...core } : undefined;
+  })();

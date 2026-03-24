@@ -24,5 +24,11 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "src/utils/utils.ts", "src/utils/ref.ts", "src/utils/money.ts"]
+  "include": [
+    "src",
+    "shared",
+    "src/utils/utils.ts",
+    "src/utils/ref.ts",
+    "src/utils/money.ts"
+  ]
 }

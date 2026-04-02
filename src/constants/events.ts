@@ -1,4 +1,4 @@
-import TradOut from "../assets/tradout/TRADOUT.jpg";
+import TradOut from "../assets/tradout/tradoutv2.jpeg";
 import {
   EVENTS as CORE_EVENTS,
   getEventById as getCoreEventById,

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import tradout from "../../assets/tradout/TRADOUT.jpg";
+import tradoutv2 from "../../assets/tradout/tradoutv2.jpeg";
 
 export default function UpcomingEventsSection() {
   const navigate = useNavigate();
@@ -60,7 +60,7 @@ export default function UpcomingEventsSection() {
                 <div className="absolute inset-0 p-4 sm:p-6">
                   <div className="h-full w-full rounded-2xl bg-black/20 ring-1 ring-white/10 flex items-center justify-center overflow-hidden">
                     <img
-                      src={tradout}
+                      src={tradoutv2}
                       alt="Tradout event poster"
                       className="h-full w-full object-contain"
                       loading="lazy"

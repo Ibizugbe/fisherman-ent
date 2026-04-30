@@ -41,12 +41,12 @@ export async function sendTicketEmails(order: TicketOrder) {
   const ticketSection = `
 
 The Experience
-TradOut 1.0 is a high-energy comedy experience designed for you. Expect a lineup featuring a mix of up-and-coming and seasoned industry professionals.
+TradOut is a high-energy comedy experience designed for you. Expect a lineup featuring a mix of up-and-coming and seasoned industry professionals.
  
 Pro-tip: Please arrive early to enjoy our interactive experience.
  
 Join Our Community
-To truly get the most out of this experience, you need to be in our Telegram Community. By joining, you get exclusive behind-the-scenes access, instant updates on TradOut 1.0, and first-dibs (plus possible discounts) on all subsequent shows.
+To truly get the most out of this experience, you need to be in our Telegram Community. By joining, you get exclusive behind-the-scenes access, instant updates on TradOut, and first-dibs (plus possible discounts) on all subsequent shows.
   
 Need help or have questions? Reply to this email or reach us at contact@fishermanent.com.
 

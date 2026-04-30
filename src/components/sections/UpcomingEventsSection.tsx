@@ -92,7 +92,7 @@ export default function UpcomingEventsSection() {
 
                 <h3 className="mt-4 text-2xl sm:text-3xl font-black text-gray-900 leading-tight">
                   TradOut 2.0 is here!
-                  <br className="hidden sm:block" />
+                  <br className="" />
                   Secure your ticket now.
                 </h3>
 

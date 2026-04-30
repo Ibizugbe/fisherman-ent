@@ -17,7 +17,7 @@ export const EVENTS: EventCore[] = [
     priceNaira: 15000,
     dateLabel: "Sunday, June 21st, 2026",
     timeLabel: "5:00 PM",
-    venueLabel: "Thames Event Center",
+    venueLabel: "The Thames Event Center",
     description:
       "Tradout is a live show experience. Get your ticket and be part of the moment.",
   },

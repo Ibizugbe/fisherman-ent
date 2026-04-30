@@ -91,7 +91,8 @@ export default function UpcomingEventsSection() {
                 </div>
 
                 <h3 className="mt-4 text-2xl sm:text-3xl font-black text-gray-900 leading-tight">
-                  Tradout 2.0 is coming. <br className="hidden sm:block" />
+                  TradOut 2.0 is here!
+                  <br className="hidden sm:block" />
                   Secure your ticket now.
                 </h3>
 
@@ -115,7 +116,7 @@ export default function UpcomingEventsSection() {
                     <div className="flex items-start justify-between gap-4">
                       <span className="text-sm text-gray-500">Venue</span>
                       <span className="text-sm font-semibold text-[#111827] text-right max-w-[260px] sm:max-w-none">
-                        Thames Event Center
+                        The Thames Event Center
                       </span>
                     </div>
                   </div>

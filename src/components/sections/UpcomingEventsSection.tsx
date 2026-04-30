@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import tradoutv2 from "../../assets/tradout/tradoutv2.jpeg";
+import tradoutv2 from "../../assets/tradout/TRADEOUT 2.0.jpg";
 
 export default function UpcomingEventsSection() {
   const navigate = useNavigate();
@@ -62,7 +62,7 @@ export default function UpcomingEventsSection() {
                     <img
                       src={tradoutv2}
                       alt="Tradout event poster"
-                      className="h-full w-full object-contain"
+                      className="h-full w-full"
                       loading="lazy"
                     />
                   </div>
@@ -115,7 +115,7 @@ export default function UpcomingEventsSection() {
                     <div className="flex items-start justify-between gap-4">
                       <span className="text-sm text-gray-500">Venue</span>
                       <span className="text-sm font-semibold text-[#111827] text-right max-w-[260px] sm:max-w-none">
-                        To be announced!
+                        Thames Event Center
                       </span>
                     </div>
                   </div>

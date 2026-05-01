@@ -74,7 +74,7 @@ export default function UpcomingEventsSection() {
                   Tradout 2.0
                 </p>
                 <p className="text-xs text-gray-500 mt-1">
-                  21st june 2026 • 5:00 PM
+                  21st June 2026 • 5:00 PM
                 </p>
               </div>
             </div>

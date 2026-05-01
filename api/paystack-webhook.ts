@@ -86,8 +86,22 @@ const sendTicketEmails = async (order: TicketOrder) => {
   const ticketSection = `
 
 The Experience
-TradOut is a high-energy comedy experience designed for you. Expect a lineup featuring a mix of up-and-coming and seasoned industry professionals.
+It even better this time!
+
+TradOut 2.0 is bigger and better. Expect high-energy comedy that will get you rocking back and forth. The lineup is juicier featuring really funny guys. The music will be divine.
  
+Pro-tip: Please arrive early. Why? Because.
+ 
+Join Our Community
+
+Now, why haven’t you joined our Telegram Community? By joining, you get exclusive behind-the-scenes access, instant updates on TradOut 2.0, and first-dibs (plus possible discounts) on all subsequent shows.
+  
+Need help or have questions? Reply to this email or reach us at contact@fishermanent.com.
+
+See you at The Thames!
+ 
+Best regards,
+The TradOut Team 
 Pro-tip: Please arrive early to enjoy our interactive experience.
  
 Join Our Community
@@ -100,8 +114,7 @@ See you at the Hub!
 Best regards,
 The TradOut Team`;
 
-  const telegramUrl =
-    process.env.TELEGRAM_URL || "https://t.me/fishermanent";
+  const telegramUrl = process.env.TELEGRAM_URL || "https://t.me/fishermanent";
   const telegramCta = "Click here to join the Telegram Community";
 
   await sendEmailJs({

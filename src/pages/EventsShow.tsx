@@ -89,12 +89,12 @@ export default function EventShow() {
           <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
             {/* Left: Cover */}
             <div className="rounded-2xl overflow-hidden bg-neutral-200/70 ring-1 ring-black/5 shadow-[0_18px_55px_rgba(0,0,0,0.12)]">
-              <div className="aspect-[4/3] sm:aspect-[5/4] w-full">
+              <div className="aspect-[4/5] w-full">
                 {event.coverImage ? (
                   <img
                     src={event.coverImage}
                     alt={event.name}
-                    className="h-full w-full object-center"
+                    className="h-full w-full object-contain"
                   />
                 ) : (
                   <div className="h-full w-full bg-gradient-to-br from-[#739AD4]/40 via-white/40 to-black/5" />

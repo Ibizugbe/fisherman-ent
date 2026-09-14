@@ -12,14 +12,14 @@ export type EventCore = {
 export const EVENTS: EventCore[] = [
   {
     id: "tradout",
-    name: "Tradout 2.0",
+    name: "TradOut 3.0",
     currency: "NGN",
     priceNaira: 15000,
-    dateLabel: "Sunday, June 21st, 2026",
+    dateLabel: "Sunday, November 29th, 2026",
     timeLabel: "5:00 PM",
-    venueLabel: "The Thames Event Center",
+    venueLabel: "The Thames Event Centre, Benin City",
     description:
-      "Tradout is a live show experience. Get your ticket and be part of the moment.",
+      "A night of comedy and music you will never forget. Please arrive early. E get why.",
   },
 ];
 

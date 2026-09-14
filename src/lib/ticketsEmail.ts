@@ -1,5 +1,6 @@
 import emailjs from "@emailjs/browser";
 import type { TicketOrder } from "../types/tickets";
+import { tradoutTelegramCta, tradoutTicketSection } from "../../shared/tradoutEmail";
 
 function env(name: string): string {
   return (import.meta as any).env?.[name] as string;
@@ -38,25 +39,10 @@ export async function sendTicketEmails(order: TicketOrder) {
   }
 
   const summary = buildTicketSummary(order);
-  const ticketSection = `
-
-The Experience
-TradOut 2.0 is bigger and better. Expect high-energy comedy that will get you rocking back and forth. The lineup is juicier featuring really funny guys. The music will be divine.
- 
-Pro-tip: Please arrive early. Why? Because.
- 
-Join Our Community
-Now, why haven’t you joined our Telegram Community? By joining, you get exclusive behind-the-scenes access, instant updates on TradOut 2.0, and first-dibs (plus possible discounts) on all subsequent shows.
-  
-Need help or have questions? Reply to this email or reach us at contact@fishermanent.com.
-
-See you at The Thames!
- 
-Best regards,
-The TradOut Team`;
+  const ticketSection = tradoutTicketSection;
 
   const telegramUrl = "https://t.me/fishermanent";
-  const telegramCta = "Click here to join the Telegram Community";
+  const telegramCta = tradoutTelegramCta;
 
   // Admin
   await emailjs.send(

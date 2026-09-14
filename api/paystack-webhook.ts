@@ -1,5 +1,6 @@
 import crypto from "crypto";
 import { createClient } from "@supabase/supabase-js";
+import { tradoutTelegramCta, tradoutTicketSection } from "../shared/tradoutEmail";
 
 type TicketOrder = {
   reference: string;
@@ -83,39 +84,10 @@ const sendTicketEmails = async (order: TicketOrder) => {
   }
 
   const summary = buildTicketSummary(order);
-  const ticketSection = `
-
-The Experience
-It even better this time!
-
-TradOut 2.0 is bigger and better. Expect high-energy comedy that will get you rocking back and forth. The lineup is juicier featuring really funny guys. The music will be divine.
- 
-Pro-tip: Please arrive early. Why? Because.
- 
-Join Our Community
-
-Now, why haven’t you joined our Telegram Community? By joining, you get exclusive behind-the-scenes access, instant updates on TradOut 2.0, and first-dibs (plus possible discounts) on all subsequent shows.
-  
-Need help or have questions? Reply to this email or reach us at contact@fishermanent.com.
-
-See you at The Thames!
- 
-Best regards,
-The TradOut Team 
-Pro-tip: Please arrive early to enjoy our interactive experience.
- 
-Join Our Community
-To truly get the most out of this experience, you need to be in our Telegram Community. By joining, you get exclusive behind-the-scenes access, instant updates on TradOut, and first-dibs (plus possible discounts) on all subsequent shows.
-  
-Need help or have questions? Reply to this email or reach us at contact@fishermanent.com.
-
-See you at the Hub!
- 
-Best regards,
-The TradOut Team`;
+  const ticketSection = tradoutTicketSection;
 
   const telegramUrl = process.env.TELEGRAM_URL || "https://t.me/fishermanent";
-  const telegramCta = "Click here to join the Telegram Community";
+  const telegramCta = tradoutTelegramCta;
 
   await sendEmailJs({
     service_id: serviceId,

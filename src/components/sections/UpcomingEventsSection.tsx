@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import tradoutv2 from "../../assets/tradout/TRADEOUT 2.0.jpg";
+import { getEventById } from "../../constants/events";
 
 export default function UpcomingEventsSection() {
   const navigate = useNavigate();
+  const event = getEventById("tradout");
+  if (!event) return null;
 
   return (
     <section className="relative py-16 sm:py-20 bg-[#F4F1EF] overflow-hidden">
@@ -60,9 +62,9 @@ export default function UpcomingEventsSection() {
                 <div className="absolute inset-0 p-4 sm:p-6">
                   <div className="h-full w-full rounded-2xl bg-black/20 ring-1 ring-white/10 flex items-center justify-center overflow-hidden">
                     <img
-                      src={tradoutv2}
-                      alt="Tradout event poster"
-                      className="h-full w-full"
+                      src={event.coverImage}
+                      alt={`${event.name} poster`}
+                      className="h-full w-full object-contain"
                       loading="lazy"
                     />
                   </div>
@@ -71,10 +73,10 @@ export default function UpcomingEventsSection() {
 
               <div className="px-6 py-5 border-t border-black/5 bg-white/80">
                 <p className="text-sm font-semibold text-[#111827]">
-                  Tradout 2.0
+                  {event.name}
                 </p>
                 <p className="text-xs text-gray-500 mt-1">
-                  21st June 2026 • 5:00 PM
+                  {event.dateLabel} • {event.timeLabel}
                 </p>
               </div>
             </div>
@@ -91,7 +93,7 @@ export default function UpcomingEventsSection() {
                 </div>
 
                 <h3 className="mt-4 text-2xl sm:text-3xl font-black text-gray-900 leading-tight">
-                  TradOut 2.0 is here!
+                  {event.name} is here!
                   <br className="" />
                   Secure your ticket now.
                 </h3>
@@ -102,21 +104,21 @@ export default function UpcomingEventsSection() {
                     <div className="flex items-start justify-between gap-4">
                       <span className="text-sm text-gray-500">Date</span>
                       <span className="text-sm font-semibold text-[#111827] text-right">
-                        21st June 2026
+                        {event.dateLabel}
                       </span>
                     </div>
 
                     <div className="flex items-start justify-between gap-4">
                       <span className="text-sm text-gray-500">Time</span>
                       <span className="text-sm font-semibold text-[#111827] text-right">
-                        5:00 PM
+                        {event.timeLabel}
                       </span>
                     </div>
 
                     <div className="flex items-start justify-between gap-4">
                       <span className="text-sm text-gray-500">Venue</span>
                       <span className="text-sm font-semibold text-[#111827] text-right max-w-[260px] sm:max-w-none">
-                        The Thames Event Center
+                        {event.venueLabel}
                       </span>
                     </div>
                   </div>
@@ -125,7 +127,7 @@ export default function UpcomingEventsSection() {
                 {/* Price */}
                 <div className="mt-6 flex flex-wrap items-center gap-3">
                   <span className="inline-flex items-center rounded-xl bg-[#0B1220] px-4 py-2 text-white text-sm font-semibold">
-                    NGN 15,000
+                    NGN {event.priceNaira.toLocaleString()}
                   </span>
                   <span className="text-sm text-gray-500">
                     Entry ticket (flat fee)

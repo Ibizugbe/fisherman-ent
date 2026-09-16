@@ -15,7 +15,7 @@ export const EVENTS: EventCore[] = [
     name: "TradOut 3.0",
     currency: "NGN",
     priceNaira: 15000,
-    dateLabel: "Sunday, November 29th, 2026",
+    dateLabel: "Friday, December 11th, 2026",
     timeLabel: "5:00 PM",
     venueLabel: "The Thames Event Centre, Benin City",
     description:

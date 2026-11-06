@@ -79,7 +79,7 @@ export function EventsArchiveSection() {
                   </p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <a
-                      href="https://www.youtube.com/@netete_tv"
+                      href="https://youtube.com/@fishermanent?si=2e_mdWvFVggfrAl_"
                       target="_blank"
                       rel="noreferrer"
                       className="h-11 px-5 rounded-full bg-[#0B1220] text-white font-semibold grid place-items-center"

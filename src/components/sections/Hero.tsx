@@ -75,7 +75,7 @@ export function Hero() {
               <button
                 onClick={() =>
                   window.open(
-                    "https://www.youtube.com/@netete_tv",
+                    "https://youtube.com/@fishermanent?si=2e_mdWvFVggfrAl_",
                     "_blank",
                     "noopener,noreferrer",
                   )

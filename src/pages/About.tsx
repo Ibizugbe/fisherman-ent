@@ -3,6 +3,8 @@ import { Dot } from "lucide-react";
 import { Navbar } from "../components/layouts/Navbar";
 import { Footer } from "../components/layouts/Footer";
 import { BRANDS } from "../constants/brands";
+import netete from "../assets/team/netete.png";
+import { Link } from "react-router-dom";
 
 export default function About() {
   return (
@@ -16,7 +18,7 @@ export default function About() {
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start"
+            className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"
           >
             <div>
               <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-gray-600">
@@ -27,17 +29,42 @@ export default function About() {
               </h1>
             </div>
 
-            <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-xl">
-              Fisherman Entertainment is a creative powerhouse dealing with the
-              production of film, music, comedy, and live events. It was founded
-              by{" "}
-              <strong className="text-gray-900 font-semibold">
-                Netete Asowata
-              </strong>{" "}
-              in 2025.
-            </p>
+            <div>
+              <div className="rounded-3xl overflow-hidden bg-[#0B1220] shadow-[0_18px_55px_rgba(0,0,0,0.14)]">
+                <img
+                  src={netete}
+                  alt="Netete Asowata, founder of Fisherman Entertainment"
+                  className="w-full max-h-[520px] object-cover object-top"
+                />
+              </div>
+              <p className="mt-5 text-base sm:text-lg text-gray-700 leading-relaxed">
+                Fisherman Entertainment is a production house working in film,
+                music, comedy, and live events.
+              </p>
+            </div>
           </motion.div>
         </div>
+      </section>
+
+      <section className="py-14 sm:py-20 bg-[#F4F1EF]">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="max-w-4xl mx-auto px-4 sm:px-6"
+        >
+          <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-gray-600">
+            Our Story
+          </p>
+          <p className="mt-4 text-xl sm:text-2xl text-gray-800 leading-relaxed font-medium">
+            Fisherman Entertainment was founded by Netete Asowata (nicknamed
+            the Fisherman) in 2025 to give up-and-coming entertainers,
+            especially those living in Benin City, a platform to showcase their
+            talent. Netete had experienced the utter lack of opportunities for
+            young up-and-comers and sought to change that.
+          </p>
+        </motion.div>
       </section>
 
       {/* Mission & Vision */}
@@ -62,7 +89,8 @@ export default function About() {
 
             <p className="text-gray-700 leading-relaxed text-base sm:text-[17px]">
               Our mission is to create, produce, and promote world-class
-              entertainment that inspires laughter, connection, and creativity.
+              entertainment that gives talents a platform while inspiring
+              laughter, connection, and creativity.
             </p>
           </motion.div>
 
@@ -84,9 +112,9 @@ export default function About() {
             </div>
 
             <p className="text-gray-700 leading-relaxed text-base sm:text-[17px]">
-              To become a leading force in global entertainment, where comedy
-              and storytelling shape the future of entertainment, and bring
-              people together through shared moments of joy and inspiration.
+              To become a global entertainment company where comedy and
+              storytelling bring people together, inspire creativity, and
+              create shared moments of joy.
             </p>
           </motion.div>
         </div>
@@ -98,21 +126,28 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start mb-10 sm:mb-14">
             <div>
               <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-gray-600">
-                Partners
+                Our Partners
               </p>
               <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
-                Brands We have worked with.
+                Building meaningful partnerships.
               </h2>
             </div>
 
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed max-w-xl">
-              Fisherman Entertainment is always open to collaborating with
-              likeminded brands that wish to sponsor any of our shows or support
-              the business in any way, shape or form. On our end, we are
-              committed to strategically positioning our sponsors to optimize
-              brand visibility and customer engagement. To sponsor or
-              collaborate with us, shoot us a message on our socials, give us a
-              call or send an email. We are always active.
+              We love working with brands that believe in what we&apos;re
+              building. Whether you want to sponsor a show, collaborate on a
+              project, or support what we do in another way, we&apos;re open to
+              the conversation.
+              <span className="block mt-4">
+                And when you work with us, we want your brand to get something
+                out of it too—from visibility to meaningful audience engagement.
+              </span>
+              <Link
+                to="/contact"
+                className="mt-6 inline-flex h-12 px-7 rounded-full bg-[#739AD4] text-white font-semibold items-center hover:brightness-95 transition"
+              >
+                Become a Partner
+              </Link>
             </p>
           </div>
 

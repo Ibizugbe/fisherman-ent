@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import heroImage from "../../assets/hero.jpeg";
-import { Typewriter } from "react-simple-typewriter";
 
 export function Hero() {
   const navigate = useNavigate();
@@ -45,26 +44,7 @@ export function Hero() {
               transition={{ duration: 0.75, ease: "easeOut", delay: 0.05 }}
               className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-black leading-tight text-white"
             >
-              <Typewriter
-                words={["Entertainment the "]}
-                loop={1}
-                typeSpeed={60}
-                deleteSpeed={0}
-                delaySpeed={0}
-                cursor={false}
-              />
-
-              <span className="text-[#739AD4]">
-                <Typewriter
-                  words={["right way."]}
-                  loop={1}
-                  typeSpeed={60}
-                  deleteSpeed={0}
-                  delaySpeed={900}
-                  cursor
-                  cursorStyle="|"
-                />
-              </span>
+              Three Shows A Year. One Growing Comedy Community.
             </motion.h1>
 
             <motion.p
@@ -73,9 +53,8 @@ export function Hero() {
               transition={{ duration: 0.75, ease: "easeOut", delay: 0.12 }}
               className="mt-5 text-base sm:text-lg text-white/85 leading-relaxed"
             >
-              At Fisherman Entertainment, we are particular about fresh and
-              inventive ways of entertainment. Love comedy, movies, art? We’ve
-              got you. Watch out for our upcoming project; we dey cook!
+              TradOut is a live celebration of comedy and the arts in Benin
+              City—where we do things outside the Ghana-must-go.
             </motion.p>
             {/* CTAs */}
             <motion.div
@@ -85,30 +64,28 @@ export function Hero() {
               className="mt-8 flex flex-col sm:flex-row gap-3 sm:items-center"
             >
               <button
-                onClick={() => navigate("/events")}
+                onClick={() => navigate("/events/tradout")}
                 className="h-12 px-8 rounded-full bg-[#739AD4] text-white font-semibold
                            shadow-[0_14px_40px_rgba(115,154,212,0.35)]
                            hover:brightness-95 active:scale-[0.99] transition"
               >
-                Explore Events
+                Buy TradOut Tickets
               </button>
 
               <button
-                onClick={() => navigate("/tickets/tradout")}
+                onClick={() =>
+                  window.open(
+                    "https://www.youtube.com/@netete_tv",
+                    "_blank",
+                    "noopener,noreferrer",
+                  )
+                }
                 className="h-12 px-8 rounded-full bg-white/10 text-white font-semibold
                            border border-white/20 backdrop-blur-sm
                            hover:bg-white/15 active:scale-[0.99] transition"
               >
-                Buy Tradout Ticket
+                Watch TradOut on YouTube
               </button>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.9, delay: 0.35 }}
-              className="mt-8 text-sm text-white/70"
-            >
-              New drops • Live shows • Fresh stories
             </motion.div>
           </div>
         </div>

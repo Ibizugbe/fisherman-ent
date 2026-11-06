@@ -20,14 +20,14 @@ export default function UpcomingEventsSection() {
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div className="max-w-2xl">
             <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-gray-600">
-              Upcoming events
+              Events
             </p>
             <h2 className="mt-3 text-3xl sm:text-4xl font-black text-gray-900">
-              What’s Next at Fisherman?
+              Come for the comedy. Stay for the laughing community.
             </h2>
             <p className="mt-3 text-base sm:text-lg text-gray-600 leading-relaxed">
-              Get tickets early and stay in the loop for new drops, shows, and
-              releases.
+              From past shows to what&apos;s coming next, see what we&apos;ve
+              been up to and find your next night out with us.
             </p>
           </div>
 
@@ -36,8 +36,23 @@ export default function UpcomingEventsSection() {
             className="w-full sm:w-auto h-12 px-6 rounded-full bg-white/70 border border-black/10 text-gray-900 font-semibold
                        hover:bg-white transition shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
           >
-            View all events →
+            View All Events
           </button>
+        </div>
+
+        <div className="mt-8 rounded-3xl bg-[#0B1220] px-6 py-7 sm:px-8 sm:py-8 text-white flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <p className="max-w-3xl text-base sm:text-lg leading-relaxed text-white/85">
+            Talking about community, get updates on upcoming TradOut shows, new
+            events, and everything Fisherman Entertainment.
+          </p>
+          <a
+            href="https://t.me/FishermanEnt"
+            target="_blank"
+            rel="noreferrer"
+            className="shrink-0 h-12 px-6 rounded-full bg-[#739AD4] text-white font-semibold grid place-items-center hover:brightness-95 transition"
+          >
+            Join the Telegram Community
+          </a>
         </div>
 
         {/* Featured Event Card */}

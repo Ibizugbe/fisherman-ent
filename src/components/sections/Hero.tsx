@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import heroImage from "../../assets/hero.jpeg";
+import heroImage from "../../assets/hero-tradout.jpeg";
 
 export function Hero() {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ export function Hero() {
     <section className="relative h-[92vh] min-h-[640px] overflow-hidden">
       {/* Background */}
       <div
-        className="absolute inset-0 bg-center bg-cover"
+        className="absolute inset-0 bg-cover bg-[position:38%_center] sm:bg-center"
         style={{ backgroundImage: `url('${heroImage}')` }}
       />
 

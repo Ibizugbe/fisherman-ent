@@ -19,6 +19,7 @@ const PAST_EVENTS = [
     location: "Benin City",
     image: tradOutTwoPoster,
     galleryId: "tradout-2-gallery",
+    videoUrl: "https://youtu.be/8jYZSsgdD4I",
   },
   {
     name: "TradOut 1.0",
@@ -26,6 +27,7 @@ const PAST_EVENTS = [
     location: "Benin City",
     image: tradOutOnePoster,
     galleryId: "tradout-1-gallery",
+    videoUrl: "https://youtu.be/gSuGLNv1QKA",
   },
 ];
 
@@ -79,7 +81,7 @@ export function EventsArchiveSection() {
                   </p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <a
-                      href="https://www.youtube.com/@netete_tv"
+                      href={event.videoUrl}
                       target="_blank"
                       rel="noreferrer"
                       className="h-11 px-5 rounded-full bg-[#0B1220] text-white font-semibold grid place-items-center"

@@ -1,6 +1,6 @@
 type Brand = {
   name: string;
-  logo: string;
+  logo?: string;
 };
 
 type Props = {
@@ -14,7 +14,10 @@ function MarqueeRow({
   brands: Brand[];
   reverse?: boolean;
 }) {
-  const items = [...brands, ...brands];
+  const brandsWithLogos = brands.filter(
+    (brand): brand is Brand & { logo: string } => Boolean(brand.logo),
+  );
+  const items = [...brandsWithLogos, ...brandsWithLogos];
 
   return (
     <div className="relative overflow-hidden">
@@ -33,7 +36,7 @@ function MarqueeRow({
             <img
               src={b.logo}
               alt={b.name}
-              className="h-7 w-16 sm:h-8  opacity-80 hover:opacity-100 transition"
+              className="h-8 w-24 object-contain opacity-80 hover:opacity-100 transition"
               loading="lazy"
             />
           </div>
@@ -59,13 +62,17 @@ export default function BrandsMarqueeSection({ brands }: Props) {
           <p className="text-xs sm:text-sm font-semibold tracking-widest text-gray-600 uppercase">
             Brands We Have Worked With
           </p>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-black text-gray-900">
-            We are big on collaboration.
-          </h2>
-          <p className="mt-3 text-base sm:text-lg text-gray-600">
-            These are the brands we have had the privilege to collaborate with.
-            Become a sponsor.{" "}
+          <p className="mt-4 text-base sm:text-lg text-gray-600 leading-relaxed">
+            From entertainment and hospitality to fashion, food, and real
+            estate, we&apos;ve had the privilege of working with brands across
+            Benin City and beyond.
           </p>
+          <a
+            href="/contact"
+            className="mt-5 inline-flex text-[#436da9] font-bold underline underline-offset-4"
+          >
+            Want to work with us? Become a sponsor.
+          </a>
         </div>
 
         <div className="mt-10 sm:mt-12 space-y-4">

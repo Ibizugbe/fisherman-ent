@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Phone, Mail, MessageCircle } from "lucide-react";
+import { Phone, Mail, MessageCircle, Send } from "lucide-react";
 import { Navbar } from "../components/layouts/Navbar";
 import { Footer } from "../components/layouts/Footer";
 
@@ -32,9 +32,6 @@ export default function Contact() {
             className="mt-5 text-4xl sm:text-5xl md:text-6xl font-black text-gray-900 leading-tight"
           >
             Get in touch with us.
-            <span className="block mt-2 text-[#739AD4]">
-              We’re here to assist you.
-            </span>
           </motion.h1>
 
           {/* Subtext */}
@@ -62,6 +59,9 @@ export default function Contact() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               className="bg-gray-50 rounded-3xl shadow-[0_18px_55px_rgba(0,0,0,0.08)] p-6 sm:p-10 overflow-hidden"
             >
+              <h2 className="mb-6 text-2xl sm:text-3xl font-black text-gray-900">
+                Send us a Message
+              </h2>
               <form className="space-y-5 sm:space-y-8">
                 <input
                   type="text"
@@ -111,7 +111,7 @@ export default function Contact() {
                 {
                   icon: Phone,
                   title: "Call us today",
-                  value: "+234 8146921721",
+                  value: "+2348146921721",
                   href: "tel:+2348146921721",
                 },
                 {
@@ -126,17 +126,22 @@ export default function Contact() {
                   value: "+234 8146921721",
                   href: "https://wa.me/2348146921721",
                   color: "text-green-600",
+                  external: true,
+                },
+                {
+                  icon: Send,
+                  title: "Telegram",
+                  value: "FishermanEnt",
+                  href: "https://t.me/FishermanEnt",
+                  color: "text-sky-600",
+                  external: true,
                 },
               ].map((item, i) => (
                 <motion.a
                   key={item.title}
                   href={item.href}
-                  target={item.title === "WhatsApp" ? "_blank" : undefined}
-                  rel={
-                    item.title === "WhatsApp"
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
                   initial={{ opacity: 0, y: 14 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.25 }}

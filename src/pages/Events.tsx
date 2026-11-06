@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Navbar } from "../components/layouts/Navbar";
 import { Footer } from "../components/layouts/Footer";
 import { EVENTS } from "../constants/events";
+import { EventsArchiveSection } from "../components/sections/EventsArchiveSection";
 
 function FeaturedEvent({ e }: { e: (typeof EVENTS)[number] }) {
   const navigate = useNavigate();
@@ -54,7 +55,7 @@ function FeaturedEvent({ e }: { e: (typeof EVENTS)[number] }) {
       <div className="rounded-3xl bg-white/80 ring-1 ring-black/5 shadow-[0_18px_55px_rgba(0,0,0,0.10)] p-6 sm:p-8 flex flex-col min-w-0">
         <div className="min-w-0">
           <p className="text-xs sm:text-sm font-semibold tracking-widest uppercase text-gray-600">
-            Upcoming
+            Upcoming Event
           </p>
 
           <h2 className="mt-3 text-3xl sm:text-4xl font-black text-gray-900 leading-tight">
@@ -193,10 +194,11 @@ export default function Events() {
               Events
             </p>
             <h1 className="mt-3 text-4xl sm:text-5xl font-black text-neutral-900">
-              Upcoming shows
+              The moments are complete with joy
             </h1>
             <p className="mt-3 text-neutral-700 text-base sm:text-lg leading-relaxed">
-              Browse events and purchase tickets.
+              From comedy nights to live entertainment, see what we&apos;ve
+              been up to—and find your next night out.
             </p>
           </motion.div>
 
@@ -221,6 +223,8 @@ export default function Events() {
           ) : null}
         </div>
       </div>
+
+      <EventsArchiveSection />
 
       <Footer />
     </>

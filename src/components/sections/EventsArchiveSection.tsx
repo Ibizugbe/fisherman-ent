@@ -1,16 +1,16 @@
 import { motion } from "framer-motion";
 import tradOutOnePoster from "../../assets/tradout/TRADOUT.jpg";
 import tradOutTwoPoster from "../../assets/tradout/TRADEOUT 2.0.jpg";
-import gallery1 from "../../assets/gallery/galary1.png";
-import gallery2 from "../../assets/gallery/galary2.png";
-import gallery3 from "../../assets/gallery/galary3.png";
-import gallery4 from "../../assets/gallery/galary4.png";
-import gallery5 from "../../assets/gallery/galary5.png";
-import gallery6 from "../../assets/gallery/galary6.png";
-import gallery7 from "../../assets/gallery/galary7.png";
-import gallery8 from "../../assets/gallery/galary8.png";
-import gallery9 from "../../assets/gallery/galary9.png";
-import gallery10 from "../../assets/gallery/galary10.png";
+import tradOutOneGallery1 from "../../assets/gallery/tradout-1/img-9335.jpeg";
+import tradOutOneGallery2 from "../../assets/gallery/tradout-1/img-9730.jpeg";
+import tradOutOneGallery3 from "../../assets/gallery/tradout-1/img-9791.jpeg";
+import tradOutOneGallery4 from "../../assets/gallery/tradout-1/img-9845.jpeg";
+import tradOutOneGallery5 from "../../assets/gallery/tradout-1/img-9995.jpeg";
+import tradOutTwoGallery1 from "../../assets/gallery/tradout-2/img-0682.jpeg";
+import tradOutTwoGallery2 from "../../assets/gallery/tradout-2/img-0720.jpeg";
+import tradOutTwoGallery3 from "../../assets/gallery/tradout-2/img-0804.jpeg";
+import tradOutTwoGallery4 from "../../assets/gallery/tradout-2/img-1102.jpeg";
+import tradOutTwoGallery5 from "../../assets/gallery/tradout-2/img-1297.jpeg";
 
 const PAST_EVENTS = [
   {
@@ -19,6 +19,7 @@ const PAST_EVENTS = [
     location: "Benin City",
     image: tradOutTwoPoster,
     galleryId: "tradout-2-gallery",
+    videoUrl: "https://youtu.be/8jYZSsgdD4I",
   },
   {
     name: "TradOut 1.0",
@@ -26,6 +27,7 @@ const PAST_EVENTS = [
     location: "Benin City",
     image: tradOutOnePoster,
     galleryId: "tradout-1-gallery",
+    videoUrl: "https://youtu.be/gSuGLNv1QKA",
   },
 ];
 
@@ -33,12 +35,24 @@ const GALLERIES = [
   {
     id: "tradout-1-gallery",
     title: "TradOut 1.0",
-    images: [gallery1, gallery2, gallery3, gallery4, gallery5],
+    images: [
+      tradOutOneGallery1,
+      tradOutOneGallery2,
+      tradOutOneGallery3,
+      tradOutOneGallery4,
+      tradOutOneGallery5,
+    ],
   },
   {
     id: "tradout-2-gallery",
     title: "TradOut 2.0",
-    images: [gallery6, gallery7, gallery8, gallery9, gallery10],
+    images: [
+      tradOutTwoGallery1,
+      tradOutTwoGallery2,
+      tradOutTwoGallery3,
+      tradOutTwoGallery4,
+      tradOutTwoGallery5,
+    ],
   },
 ];
 
@@ -79,7 +93,7 @@ export function EventsArchiveSection() {
                   </p>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <a
-                      href="https://www.youtube.com/@netete_tv"
+                      href={event.videoUrl}
                       target="_blank"
                       rel="noreferrer"
                       className="h-11 px-5 rounded-full bg-[#0B1220] text-white font-semibold grid place-items-center"
@@ -116,7 +130,7 @@ export function EventsArchiveSection() {
                     key={src}
                     src={src}
                     alt={`${gallery.title} event moment ${index + 1}`}
-                    className="w-full aspect-[4/5] object-cover rounded-2xl shadow-sm"
+                    className="w-full aspect-[4/3] object-cover rounded-2xl shadow-sm"
                     loading="lazy"
                   />
                 ))}

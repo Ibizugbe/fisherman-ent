@@ -1,9 +1,41 @@
-import { motion } from "framer-motion";
-import { Phone, Mail, MessageCircle, Send } from "lucide-react";
+import { useState, type FormEvent } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  CheckCircle2,
+  Phone,
+  Mail,
+  MessageCircle,
+  Send,
+} from "lucide-react";
 import { Navbar } from "../components/layouts/Navbar";
 import { Footer } from "../components/layouts/Footer";
 
 export default function Contact() {
+  const [formStatus, setFormStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    setFormStatus("submitting");
+
+    try {
+      const response = await fetch("https://formspree.io/f/mnppkazw", {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
+
+      if (!response.ok) throw new Error("Form submission failed");
+
+      form.reset();
+      setFormStatus("success");
+    } catch {
+      setFormStatus("error");
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -62,10 +94,21 @@ export default function Contact() {
               <h2 className="mb-6 text-2xl sm:text-3xl font-black text-gray-900">
                 Send us a Message
               </h2>
-              <form className="space-y-5 sm:space-y-8">
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-5 sm:space-y-8"
+              >
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value="New Fisherman Entertainment website message"
+                />
                 <input
                   type="text"
+                  name="name"
                   placeholder="Name"
+                  autoComplete="name"
+                  required
                   className="w-full px-5 sm:px-6 py-4 rounded-xl bg-white border border-gray-200
                        focus:outline-none focus:border-[#739AD4] focus:ring-4 focus:ring-[#739AD4]/20
                        transition-all duration-300 text-base sm:text-lg"
@@ -73,7 +116,10 @@ export default function Contact() {
 
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email"
+                  autoComplete="email"
+                  required
                   className="w-full px-5 sm:px-6 py-4 rounded-xl bg-white border border-gray-200
                        focus:outline-none focus:border-[#739AD4] focus:ring-4 focus:ring-[#739AD4]/20
                        transition-all duration-300 text-base sm:text-lg"
@@ -81,7 +127,9 @@ export default function Contact() {
 
                 <textarea
                   rows={6}
+                  name="message"
                   placeholder="Message"
+                  required
                   className="w-full px-5 sm:px-6 py-4 rounded-xl bg-white border border-gray-200
                        focus:outline-none focus:border-[#739AD4] focus:ring-4 focus:ring-[#739AD4]/20
                        transition-all duration-300 text-base sm:text-lg resize-none"
@@ -89,13 +137,26 @@ export default function Contact() {
 
                 <button
                   type="submit"
+                  disabled={formStatus === "submitting"}
                   className="w-full py-4 sm:py-5 bg-[#739AD4] text-white font-bold text-base sm:text-lg rounded-xl
                        hover:bg-[#5a7bb8] active:scale-[0.99]
                        shadow-[0_14px_40px_rgba(115,154,212,0.35)]
-                       transition-all duration-300"
+                       transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-65"
                 >
-                  Leave us a Message
+                  {formStatus === "submitting"
+                    ? "Sending Message…"
+                    : "Leave us a Message"}
                 </button>
+
+                {formStatus === "error" ? (
+                  <p
+                    role="alert"
+                    className="text-sm text-red-700 text-center leading-relaxed"
+                  >
+                    We couldn&apos;t send your message. Please try again or email
+                    us directly at contact@fishermanent.com.
+                  </p>
+                ) : null}
               </form>
             </motion.div>
 
@@ -182,6 +243,54 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      <AnimatePresence>
+        {formStatus === "success" ? (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] grid place-items-center bg-black/55 px-4 backdrop-blur-sm"
+            role="presentation"
+            onMouseDown={(event) => {
+              if (event.target === event.currentTarget) setFormStatus("idle");
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 12, scale: 0.98 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="contact-success-title"
+              className="w-full max-w-md rounded-3xl bg-white p-7 sm:p-9 text-center shadow-2xl"
+            >
+              <div className="mx-auto h-16 w-16 rounded-full bg-green-50 grid place-items-center">
+                <CheckCircle2 className="h-9 w-9 text-green-600" />
+              </div>
+              <h2
+                id="contact-success-title"
+                className="mt-5 text-2xl sm:text-3xl font-black text-gray-900"
+              >
+                Message sent successfully
+              </h2>
+              <p className="mt-3 text-gray-600 leading-relaxed">
+                Thank you for reaching out. We&apos;ve received your message and
+                will get back to you soon.
+              </p>
+              <button
+                type="button"
+                autoFocus
+                onClick={() => setFormStatus("idle")}
+                className="mt-7 h-12 w-full rounded-full bg-[#739AD4] text-white font-semibold hover:brightness-95 transition"
+              >
+                Done
+              </button>
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
 
       <Footer />
     </>

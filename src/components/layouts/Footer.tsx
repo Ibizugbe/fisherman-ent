@@ -96,7 +96,7 @@ export function Footer() {
             <Twitter size={28} />
           </a>
           <a
-            href="https://www.youtube.com/@netete_tv"
+            href="https://youtube.com/@fishermanent?si=2e_mdWvFVggfrAl_"
             className="text-gray-600 hover:text-gray-900 transition"
             aria-label="YouTube"
             target="_blank"

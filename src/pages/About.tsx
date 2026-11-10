@@ -3,8 +3,9 @@ import { Dot } from "lucide-react";
 import { Navbar } from "../components/layouts/Navbar";
 import { Footer } from "../components/layouts/Footer";
 import { BRANDS } from "../constants/brands";
-import netete from "../assets/team/netete.png";
+import netete from "../assets/team/netete-about.jpeg";
 import { Link } from "react-router-dom";
+import { BrandMarquee } from "../components/sections/BrandsMarqueeSection";
 
 export default function About() {
   return (
@@ -30,11 +31,11 @@ export default function About() {
             </div>
 
             <div>
-              <div className="rounded-3xl overflow-hidden bg-[#0B1220] shadow-[0_18px_55px_rgba(0,0,0,0.14)]">
+              <div className="aspect-[4/5] max-h-[520px] rounded-3xl overflow-hidden bg-[#0B1220] shadow-[0_18px_55px_rgba(0,0,0,0.14)]">
                 <img
                   src={netete}
                   alt="Netete Asowata, founder of Fisherman Entertainment"
-                  className="w-full max-h-[520px] object-cover object-top"
+                  className="h-full w-full object-cover object-top"
                 />
               </div>
               <p className="mt-5 text-base sm:text-lg text-gray-700 leading-relaxed">
@@ -151,35 +152,8 @@ export default function About() {
             </p>
           </div>
 
-          {/* Brand Cards */}
-          <div className="flex justify-center">
-            <div className="grid w-fit grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
-              {BRANDS.map((brand, i) => (
-                <motion.div
-                  key={brand.name}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.2 }}
-                  transition={{
-                    duration: 0.55,
-                    ease: "easeOut",
-                    delay: i * 0.03,
-                  }}
-                  className="group"
-                >
-                  <div className="rounded-3xl bg-white ring-1 ring-black/5 shadow-[0_18px_55px_rgba(0,0,0,0.08)] overflow-hidden transition-all duration-300 group-hover:shadow-[0_22px_70px_rgba(0,0,0,0.12)]">
-                    <div className="aspect-[4/3] flex items-center justify-center p-6 sm:p-8 bg-white">
-                      <img
-                        src={brand.logo}
-                        alt={brand.name}
-                        className="max-h-44 sm:max-h-40 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.04]"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          <div className="rounded-3xl bg-[#F4F1EF] px-4 sm:px-6 py-3 overflow-hidden">
+            <BrandMarquee brands={BRANDS} />
           </div>
         </div>
       </section>

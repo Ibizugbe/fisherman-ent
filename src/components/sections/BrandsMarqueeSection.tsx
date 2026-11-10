@@ -7,7 +7,7 @@ type Props = {
   brands: Brand[];
 };
 
-function MarqueeRow({
+export function BrandMarquee({
   brands,
   reverse = false,
 }: {
@@ -76,8 +76,10 @@ export default function BrandsMarqueeSection({ brands }: Props) {
         </div>
 
         <div className="mt-10 sm:mt-12 space-y-4">
-          <MarqueeRow brands={brands} />
-          <MarqueeRow brands={brands} reverse />
+          <BrandMarquee brands={brands} />
+          <div className="hidden sm:block">
+            <BrandMarquee brands={brands} reverse />
+          </div>
         </div>
       </div>
     </section>
